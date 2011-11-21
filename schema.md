@@ -2,42 +2,42 @@
 
 # Table: Category
 ## Properties:
-### Name
-### Description
+* Name
+* Description
 
 # Table: Product
 ## Properties:
-### Name
-### Reference
-### Description
-### Price
-### Sizes (array)
-### Picture url
-### Thumb url
-### Visits
-### FOREIGN KEY Categoy
+* Name
+* Reference
+* Description
+* Price
+* Sizes (array)
+* Picture url
+* Thumb url
+* Visits
+* FOREIGN KEY Categoy
 
 # Table (DEVISE) : User
 ## Properties:
-### Login_email (OAUTH Facebook/Gmail)
-### Password
+* Login_email (OAUTH Facebook/Gmail)
+* Password
 
 
 --- ## LATER ## --
 
 # Table: Cart
 ## Properties:
-### 
+* Cart stuff
 
 # Table: Line Item
 ## Properties:
-### Foreign Key: Product
-#### (Product)
-#### (Price)
-### Quantity
+* Foreign Key: Product
+	* Product
+	* Price
+* Quantity
 
 # Table: Order
 ## Properties:
-### Foreign Key (User) (Buyer Details)
-### Payment Details
-### Shipping status
+* Foreign Key (User) (Buyer Details)
+* Payment Details
+* Shipping status
