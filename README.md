@@ -9,6 +9,8 @@ A study on the various components that will be needed
 * [Rails Admin][1]
 * [Active Admin][2]
 
+* S3 Necessary [link][18] or [link][19]
+
 ### File Upload/Image Handling [options][3]
 * [Paperclip][4] - with Rails Admin [link][5], with Active Admin [link][6]
 * [Carrierwave][7]
@@ -60,3 +62,5 @@ This project was developed by:
 [15]: http://developers.facebook.com/docs/reference/plugins/like
 [16]: https://www.ruby-toolbox.com/categories/rails_search
 [17]: https://www.ruby-toolbox.com/categories/pagination
+[18]: http://webtempest.com/how-to-allow-image-uploads-in-rails-on-heroku/
+[19]: http://devcenter.heroku.com/articles/s3
