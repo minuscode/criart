@@ -4,6 +4,7 @@
 ## Properties:
 * Name
 * Description
+* Logo
 
 # Table: Product
 ## Properties:
