@@ -16,9 +16,9 @@
 * Picture url
 * Thumb url
 * Visits
-* FOREIGN KEY Categoy
+* FOREIGN KEY Category
 
-# Table (DEVISE) : User
+# Table (DEVISE) : Customer
 ## Properties:
 * Login_email (OAUTH Facebook/Gmail)
 * Password
