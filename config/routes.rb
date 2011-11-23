@@ -1,4 +1,10 @@
 Criart::Application.routes.draw do
+  resources :properties
+
+  resources :categories
+
+  resources :products
+
   root :to => "home#index"
   get "home/index"
 
