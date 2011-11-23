@@ -5,8 +5,8 @@ Criart::Application.routes.draw do
 
   resources :products
 
-  root :to => "home#index"
-  get "home/index"
+  root :to => "products#index"
+  get "products/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

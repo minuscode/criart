@@ -8,4 +8,7 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
   end
+  def self.down
+    drop_table :categories
+  end
 end

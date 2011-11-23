@@ -41,4 +41,4 @@
 ## Properties:
 * Foreign Key (User) (Buyer Details)
 * Payment Details
-* Shipping status
+* Shipping statusgit@github.com:miguelm/criart.git
