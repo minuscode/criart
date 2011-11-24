@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :name %><br />
-    <%= f.text_area :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
     <%= f.label :reference %><br />
@@ -38,6 +38,10 @@
   <div class="field">
     <%= f.label :visits %><br />
     <%= f.number_field :visits %>
+  </div>
+  <div class="field">
+    <label for="product[category_id]">Categoria</label><br />
+    <%= collection_select(:product, :category_id, Category.all, :id, :name,{},{:class=>"banana"}) %>
   </div>
   <div class="actions">
     <%= f.submit %>
