@@ -41,7 +41,7 @@
   </div>
   <div class="field">
     <label for="product[category_id]">Categoria</label><br />
-    <%= collection_select(:product, :category_id, @categories, :id, :name,{},{:class=>"banana"}) %>
+	<%= collection_select(:product, :category_id, Category.all, :id, :name,{},{:class=>"banana"}) %>
   </div>
   <div class="field">
 	<% Property.all.each do |property| %>
