@@ -35,6 +35,13 @@
   <%= @product.visits %>
 </p>
 
+<p>
+	<b>Propriedades</b>
+	<% @product.properties.all.each do |property|%>
+	<p><%= property.name %></p>
+	<% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

@@ -56,6 +56,7 @@ class ProductsController < ApplicationController
   # PUT /products/1
   # PUT /products/1.json
   def update
+    params[:product][:property_ids] ||= []
     @product = Product.find(params[:id])
 
     respond_to do |format|
