@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
     else
       @products = Product.where(:category_id => params[:category_id])
     end
+    
+      @cart = current_cart
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,6 +20,7 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
+    @cart = current_cart
 
     respond_to do |format|
       format.html # show.html.erb

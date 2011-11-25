@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @cart = current_cart
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,6 +16,7 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @products = @category.products
+    @cart = current_cart
     
     respond_to do |format|
       format.html # show.html.erb
@@ -26,6 +28,7 @@ class CategoriesController < ApplicationController
   # GET /categories/new.json
   def new
     @category = Category.new
+    @cart = current_cart
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +39,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1/edit
   def edit
     @category = Category.find(params[:id])
+    @cart = current_cart
   end
 
   # POST /categories

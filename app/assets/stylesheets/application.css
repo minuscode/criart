@@ -5,3 +5,11 @@
  *= require_self
  *= require_tree . 
 */
+div#cart 
+{
+	float:left;
+}
+div.main 
+{
+	width:700px;
+}
