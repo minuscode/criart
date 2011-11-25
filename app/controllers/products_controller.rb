@@ -2,7 +2,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if params[:category_id].nil?
+      @products = Product.all
+    else
+      @products = Product.where(:category_id => params[:category_id])
+    end
 
     respond_to do |format|
       format.html # index.html.erb

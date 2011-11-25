@@ -1,20 +1,38 @@
 <p id="notice"><%= notice %></p>
+<%= request.fullpath %>
+<% session[:back] = request.fullpath %>
 
-<p>
-  <b>Name:</b>
-  <%= @category.name %>
-</p>
+<h1>Listing products</h1>
 
-<p>
-  <b>Description:</b>
-  <%= @category.description %>
-</p>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Reference</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image url</th>
+    <th>Thumb url</th>
+    <th>Visits</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-<p>
-  <b>Logo:</b>
-  <%= @category.logo %>
-</p>
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.reference %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= product.image_url %></td>
+    <td><%= product.thumb_url %></td>
+    <td><%= product.visits %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
 
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Back', home_path %>
