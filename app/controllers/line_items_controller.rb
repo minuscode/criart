@@ -1,5 +1,4 @@
 class LineItemsController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show, :index]
   
   # GET /line_items
   # GET /line_items.json

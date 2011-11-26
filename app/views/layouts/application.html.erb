@@ -41,11 +41,14 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-			<div id="user_nav">
+			<div id="user_nav" class="info">
+				
 			  <% if user_signed_in? %>
 			    Ligado como <%= current_user.email %>. Não é a sua conta?
+				<%= link_to "Carrinho", carts_path, :class => "cart"%>
 			    <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
 			  <% else %>
+				<%= link_to "Carrinho", carts_path, :class => "cart"%>
 			    <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
 			  <% end %>
 			</div>
