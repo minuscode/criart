@@ -4,7 +4,7 @@ class LineItemsController < ApplicationController
   # GET /line_items.json
   def index
     @line_items = LineItem.all
-        @cart = current_cart
+    @cart = current_cart
 
     respond_to do |format|
       format.html # index.html.erb
@@ -44,6 +44,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
+    puts "fonix"
       @cart = current_cart
       product = Product.find(params[:product_id])
       @line_item = @cart.add_product(product.id)
@@ -51,9 +52,8 @@ class LineItemsController < ApplicationController
        respond_to do |format|
 
          if @line_item.save
-           format.html { redirect_to(home_url) }
-           format.js
-           format.xml { render xml: @line_item,
+           format.html { redirect_to(root_url) }
+           format.json { render json: @line_item,
              status: :created, location: @line_item }
          else
            format.html { render action: "new" }
@@ -61,7 +61,6 @@ class LineItemsController < ApplicationController
              status: :unprocessable_entity }
          end
        end
-
   end
 
   # PUT /line_items/1

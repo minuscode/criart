@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  @categories = Category.all
   private
   
   def current_cart
