@@ -4,3 +4,4 @@ log/*.log
 tmp/
 .DS_Store
 /config/s3.yml
+public/assets/*
