@@ -44,7 +44,7 @@
             <div id="user_nav" class="info">
 
               <% if user_signed_in? %>
-                Ligado como <%= current_user.email %>.
+                <%= current_user.email %>
                 <%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
                 <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
               <% else %>

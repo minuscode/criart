@@ -18,8 +18,8 @@ class Product < ActiveRecord::Base
     :s3_credentials => {
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
-    }
-    #:default_url => '/unknown.png'
+    },
+    :default_url => '/unknown.png'
 
     #attr_accessor :photo_file_name
     #attr_accessor :photo_content_type
