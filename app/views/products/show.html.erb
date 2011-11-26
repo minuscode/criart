@@ -32,10 +32,8 @@
 
 <p>
   <b>Photo:</b>
-    <%= image_tag @product.photo.url %>
+    <%=  @product.photo.url(:medium) %>
     <%= image_tag @product.photo.url(:medium) %>
-    <%= image_tag @product.photo(:thumb) %>
-    <%= image_tag @product.photo(:large) %>
 </p>
 
 <p>

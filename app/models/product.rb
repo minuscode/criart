@@ -8,9 +8,9 @@ class Product < ActiveRecord::Base
 
   has_attached_file :photo,
     :styles => {
-    :thumb  => "100x100",
-    :medium => "200x200",
-    :large => "600x400"
+      :thumb  => "90x90",
+      :medium => "210x150",
+      :large => "330x230"
     },
     :storage => :s3,
     :bucket => 'criart',
@@ -19,11 +19,12 @@ class Product < ActiveRecord::Base
       :access_key_id => ENV['S3_KEY'],
       :secret_access_key => ENV['S3_SECRET']
     }
+    #:default_url => '/unknown.png'
 
-    attr_accessor :photo_file_name
-    attr_accessor :photo_content_type
-    attr_accessor :photo_file_size
-    attr_accessor :photo_updated_at
+    #attr_accessor :photo_file_name
+    #attr_accessor :photo_content_type
+    #attr_accessor :photo_file_size
+    #attr_accessor :photo_updated_at
 
   private
 
