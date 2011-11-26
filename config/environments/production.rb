@@ -20,6 +20,16 @@ Criart::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
 
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => '587',
+    :authentication => :plain,
+    :domain         => ENV['GMAIL_SMTP_USER'],
+    :user_name  => ENV['GMAIL_SMTP_USER'],
+    :password  => ENV['GMAIL_SMTP_PASSWORD'],
+  }
+  config.action_mailer.delivery_method = :smtp
+
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
