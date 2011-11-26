@@ -51,6 +51,20 @@ font-weight: normal;
 margin-top: 10px;
 margin-bottom: 20px;
 }
+h4.home {
+line-height: 150%;
+font-weight: normal;
+font-size: 14px;
+color: gray;
+}
+div.topbar ul li a, #user_nav a {
+text-align: center;
+margin-bottom: 15px;
+padding-top: 5px;
+padding-bottom: 5px;
+font-size: 100%;
+color: #10516D;
+}
 
 .mtop40{margin-top:40px;}
 .mbottom40{margin-bottom:40px;}
