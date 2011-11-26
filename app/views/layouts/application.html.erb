@@ -58,6 +58,13 @@
                 <li><%= link_to category.name , category_path(category) %></li>
             <% end %>
           </ul>
+          <a class="brand" href="/">Criart</a>
+          <ul class="nav">
+            <% Category.all.each do |category| %>
+                <li><%= link_to category.name , category_path(category) %></li>
+            <% end %>
+          </ul>
+>>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
             <div id="user_nav" class="info">
 
               <% if user_signed_in? %>
@@ -103,11 +110,15 @@
                 </div>
             </div>
         <% end %>
+<<<<<<< HEAD
+>>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
+=======
 >>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
         </div>
     </div>
 
     <div class="container">
+<<<<<<< HEAD
 <<<<<<< HEAD
 	  <% if request.path == "/" %>
 		<div class="row mbottom40 mtop40">
@@ -139,12 +150,17 @@
 	  
 	  <footer>
 =======
+=======
+>>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
 
     <div class="main">
         <%= yield %>
     </div>
 
       <footer>
+<<<<<<< HEAD
+>>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
+=======
 >>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
         <p>&copy; Company 2011</p>
       </footer>
