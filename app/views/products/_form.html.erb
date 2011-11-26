@@ -1,4 +1,4 @@
-<%= form_for(@product) do |f| %>
+<%= form_for @product, :html => { :multipart => true } do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
@@ -36,20 +36,24 @@
     <%= f.text_field :thumb_url %>
   </div>
   <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+  <div class="field">
     <%= f.label :visits %><br />
     <%= f.number_field :visits %>
   </div>
   <div class="field">
     <label for="product[category_id]">Categoria</label><br />
-	<%= collection_select(:product, :category_id, Category.all, :id, :name,{},{:class=>"banana"}) %>
+    <%= collection_select(:product, :category_id, Category.all, :id, :name,{},{:class=>"banana"}) %>
   </div>
   <div class="field">
-	<% Property.all.each do |property| %>
-	<div>
-  		<%= check_box_tag "product[property_ids][]", property.id, @product.properties.include?(property) %>
-  		<%= property.name %>
-  	<div>
-	<% end %>
+    <% Property.all.each do |property| %>
+    <div>
+        <%= check_box_tag "product[property_ids][]", property.id, @product.properties.include?(property) %>
+        <%= property.name %>
+    <div>
+    <% end %>
   </div>
 
   <div class="actions">

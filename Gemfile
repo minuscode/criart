@@ -27,6 +27,15 @@ gem 'jquery-rails'
 # Annotate models
 gem 'annotate'
 
+# Cloud Storage for files
+gem 'aws-s3'
+
+# File Handling
+gem 'paperclip'
+
+
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
