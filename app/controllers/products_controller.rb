@@ -1,10 +1,6 @@
 class ProductsController < ApplicationController
-<<<<<<< HEAD
-  
-=======
   before_filter :authenticate_user!, :except => [:show, :index]
 
->>>>>>> 5abc83c35b5bfa8a253ce06c412e2b4c83853df8
   # GET /products
   # GET /products.json
   def index
