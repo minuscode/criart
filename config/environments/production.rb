@@ -24,9 +24,9 @@ Criart::Application.configure do
     :address        => 'smtp.sendgrid.net',
     :port           => '587',
     :authentication => :plain,
-    :domain         => ENV['GMAIL_SMTP_USER'],
-    :user_name  => ENV['GMAIL_SMTP_USER'],
-    :password  => ENV['GMAIL_SMTP_PASSWORD'],
+    :domain         => 'heroku.com',
+    :user_name  => ENV['SENDGRID_USERNAME'],
+    :password  => ENV['SENDGRID_PASSWORD'],
   }
   config.action_mailer.delivery_method = :smtp
 
