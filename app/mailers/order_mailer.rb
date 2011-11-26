@@ -5,6 +5,6 @@ class OrderMailer < ActionMailer::Base
     @user = user
     @order = order
     #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-    mail(:to => "#{user.username} <#{user.email}>", :subject => "Encomenda #{order.id} confirmada")
+    mail(:to => "#{user.username} <#{user.email}>", :subject => "Encomenda #00#{order.id} confirmada")
   end
 end
