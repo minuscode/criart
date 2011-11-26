@@ -4,7 +4,6 @@ gem 'rails', '3.1.3'
 gem "rake", "0.8.7"
 gem "devise", ">= 1.5.0"
 
-gem "activeadmin"
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -25,6 +24,7 @@ end
 
 gem 'sass-rails',   '~> 3.1.5'
 gem 'jquery-rails'
+gem "activeadmin"
 
 # Annotate models
 gem 'annotate'
