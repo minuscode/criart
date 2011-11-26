@@ -10,11 +10,23 @@ div.main
 	width:700px;
 }
 
-#user_nav{
+.info
+{
 	float:right;
-	display: block;
-	  color: #444;
-  padding: 10px 10px 11px;
-  line-height: 19px;
-  text-decoration: none;
+	padding: 10px 0px;
 }
+.info a{
+  	padding: 10px 10px 11px;
+	cursor:pointer;
+}
+
+#user_nav
+{
+	display: block;
+	color: #444;
+  	line-height: 19px;
+  	text-decoration: none;
+}
+
+.cart
+{}

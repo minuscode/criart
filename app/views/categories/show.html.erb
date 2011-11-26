@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 <%= request.fullpath %>
-<% session[:back] = request.fullpath %>
 
 <h1>Listing products</h1>
 
@@ -35,4 +34,4 @@
 </table>
 
 
-<%= link_to 'Back', home_path %>
+<%= link_to 'Back', root_path %>

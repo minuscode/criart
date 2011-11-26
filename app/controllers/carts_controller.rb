@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @cart = current_cart
 
     respond_to do |format|
       format.html # index.html.erb
@@ -18,7 +18,7 @@ class CartsController < ApplicationController
         @cart = Cart.find(params[:id])
       rescue ActiveRecord::RecordNotFound
         logger.error "Attempt to access invalid cart #{params[:id]}"
-        redirect_to home_path, notice: 'Carrinho Invalido'
+        redirect_to root_path, notice: 'Carrinho Invalido'
       else
         respond_to do |format|
           format.html # show.html.erb
@@ -84,7 +84,7 @@ class CartsController < ApplicationController
     session[:cart_id] = nil
 
     respond_to do |format|
-      format.html { redirect_to home_path, :notice => 'Carrinho Vazio.' }
+      format.html { redirect_to carts_path, :notice => 'Carrinho Vazio.' }
       format.json { head :ok }
     end
   end

@@ -1,3 +1,7 @@
+<% if notice %>
+<p id="notice"><%=notice%></p>
+<% end %>
+
 <div class="cart_title">Carrinho</div>
 <table>    
     <%= render(cart.line_items) %>
@@ -6,5 +10,6 @@
 		<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
 	</tr>
 </table>
+<%= button_to 'Finalizar Compra', new_order_path, :method => :get %>
 <%= button_to 'Limpar Carrinho', cart, :method => :delete, :confirm => 'Tem a certeza?'%>
 
