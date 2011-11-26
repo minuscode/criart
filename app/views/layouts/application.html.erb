@@ -34,24 +34,24 @@
     <div class="topbar <%="criart" unless request.path != "/"%>">
       <div class="fill">
         <div class="container">
-          	<h3>
-				<%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
+            <h3>
+                <%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
           <ul class="nav pills">
-			<% Category.all.each do |category| %>
-				<li><%= link_to category.name , category_path(category) %></li>
-			<% end %>
+            <% Category.all.each do |category| %>
+                <li><%= link_to category.name , category_path(category) %></li>
+            <% end %>
           </ul>
-			<div id="user_nav" class="info">
-				
-			  <% if user_signed_in? %>
-			    Ligado como <%= current_user.email %>.
-				<%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
-			    <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
-			  <% else %>
-				<%= link_to "Carrinho", carts_path, :class => "cart"%>
-			    <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
-			  <% end %>
-			</div>
+            <div id="user_nav" class="info">
+
+              <% if user_signed_in? %>
+                Ligado como <%= current_user.email %>.
+                <%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
+                <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= link_to "Carrinho", carts_path, :class => "cart"%>
+                <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+              <% end %>
+            </div>
 
         </div>
           <% if request.path == "/" %>
@@ -78,36 +78,30 @@
     </div>
 
     <div class="container">
-	  <% if request.path == "/" %>
-		<div class="row mbottom40 mtop40">
-				<div class="span4 text-centered">
-					<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/projects.png" title="Projects" alt="Projects" width="154px" height="90px"></div>
-					<h2>Projects</h2>
-					<h4 class="home">All your projects (private and open source), in one single place.</h4>	
-				</div>
-				<div class="span4 text-centered">
-					<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/skills.png" title="Skills" alt="Skills" width="154px" height="90px"></div>
-					<h2>Skills</h2>
-					<h4 class="home">Your profile, automatically updated. Always.</h4>	
-				</div>
-				<div class="span4 text-centered">
-					<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/devscore.png" title="DevScore" alt="DevScore" width="154px" height="90px"></div>
-					<h2>DevScore</h2>
-					<h4 class="home">Your reputation in the developer community.</h4>	
-				</div>
-				<div class="span4 text-centered">
-					<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/achievements.png" title="Achievements" alt="Achievements" width="154px" height="90px"></div>
-					<h2>Achievements</h2>
-					<h4 class="home">Get recognized with awards for your mad skills.</h4>	
-				</div>
-			</div>
-		<% end %>
-	<div class="main">
-    	<%= yield %>
-	</div>
-	  
-	  <footer>
-
+      <% if request.path == "/" %>
+        <div class="row mbottom40 mtop40">
+                <div class="span4 text-centered">
+                    <div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/projects.png" title="Projects" alt="Projects" width="154px" height="90px"></div>
+                    <h2>Projects</h2>
+                    <h4 class="home">All your projects (private and open source), in one single place.</h4>
+                </div>
+                <div class="span4 text-centered">
+                    <div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/skills.png" title="Skills" alt="Skills" width="154px" height="90px"></div>
+                    <h2>Skills</h2>
+                    <h4 class="home">Your profile, automatically updated. Always.</h4>
+                </div>
+                <div class="span4 text-centered">
+                    <div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/devscore.png" title="DevScore" alt="DevScore" width="154px" height="90px"></div>
+                    <h2>DevScore</h2>
+                    <h4 class="home">Your reputation in the developer community.</h4>
+                </div>
+                <div class="span4 text-centered">
+                    <div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/achievements.png" title="Achievements" alt="Achievements" width="154px" height="90px"></div>
+                    <h2>Achievements</h2>
+                    <h4 class="home">Get recognized with awards for your mad skills.</h4>
+                </div>
+            </div>
+        <% end %>
     <div class="main">
         <%= yield %>
     </div>
