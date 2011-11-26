@@ -29,23 +29,22 @@
     <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   </head>
-
   <body>
 
-    <div class="topbar">
+    <div class="topbar <%="criart" unless request.path != "/"%>">
       <div class="fill">
         <div class="container">
           <a class="brand" href="/">Criart</a>
           <ul class="nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+			<% Category.all.each do |category| %>
+				<li><%= link_to category.name , category_path(category) %></li>
+			<% end %>
           </ul>
 			<div id="user_nav" class="info">
 				
 			  <% if user_signed_in? %>
 			    Ligado como <%= current_user.email %>. Não é a sua conta?
-				<%= link_to "Carrinho", carts_path, :class => "cart"%>
+				<%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
 			    <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
 			  <% else %>
 				<%= link_to "Carrinho", carts_path, :class => "cart"%>
@@ -53,7 +52,27 @@
 			  <% end %>
 			</div>
         </div>
-      </div>
+		  <% if request.path == "/" %>
+			<div class="container">
+				<div class="row mtop40 mbottom40">
+					<div class="span7">
+						<ul class="media-grid">
+							<% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
+								<li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
+							<%end%>
+							<% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
+								<li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
+							<%end%>
+						</ul>
+					</div>
+					<div class="span9 text-centered mtop20">
+						<h1>Criart Concept</h1>
+						<h3 class="home">Fazemos Jóias à sua medida!</h3>
+					</div>
+				</div>	
+			</div>
+		<% end %>
+ 	  	</div>
     </div>
 
     <div class="container">
