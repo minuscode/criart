@@ -1,5 +1,30 @@
 <h2>Sign in</h2>
 
+<style>
+.facebook {
+    background: white url("/assets/openid-logos.png");;
+    background-position: -1px -456px;
+}
+
+.login-page .openid_large_btn {
+    width: 100px;
+    height: 60px;
+    border: 2px solid #DDD;
+    border-right: 2px solid #CCC;
+    border-bottom: 2px solid #CCC;
+    margin: 3px;
+    float: left;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    box-shadow: 2px 2px 4px #ddd;
+    -moz-box-shadow: 2px 2px 4px #ddd;
+    -webkit-box-shadow: 2px 2px 4px #ddd;
+}
+</style>
+
+<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook), :class => "open_id_large_btn facebook"%>
+
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
@@ -9,7 +34,7 @@
 
   <% if devise_mapping.rememberable? -%>
     <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%> 
+  <% end -%>
 
   <div><%= f.submit "Sign in" %></div>
 <% end %>
