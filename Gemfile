@@ -3,6 +3,8 @@ source 'http://rubygems.org'
 gem 'rails', '3.1.3'
 gem "rake", "0.8.7"
 gem "devise", ">= 1.5.0"
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 
 # Bundle edge Rails instead:

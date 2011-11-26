@@ -5,7 +5,7 @@ Criart::Application.routes.draw do
 
   resources :orders
 
-  devise_for :users
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   resources :line_items
 
@@ -16,11 +16,11 @@ Criart::Application.routes.draw do
   resources :properties
   resources :categories
   resources :products
-  
+
   root :to => "home#index", :as => 'root'
-  
+
   #match "carts" => :as => "cart"
-  
+
   #root :to => "products#index"
 #  get "products/index"
 

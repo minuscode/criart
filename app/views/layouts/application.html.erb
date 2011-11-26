@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-   	<title>Criart</title>
+    <title>Criart</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -52,31 +52,63 @@
 			    <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
 			  <% end %>
 			</div>
+          <a class="brand" href="/">Criart</a>
+          <ul class="nav">
+            <% Category.all.each do |category| %>
+                <li><%= link_to category.name , category_path(category) %></li>
+            <% end %>
+          </ul>
+            <div id="user_nav" class="info">
+
+              <% if user_signed_in? %>
+                Ligado como <%= current_user.email %>. Não é a sua conta?
+                <%= link_to "Carrinho", carts_path, :class => "cart"%>
+                <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= link_to "Carrinho", carts_path, :class => "cart"%>
+                <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+              <% end %>
+            </div>
+
+            <div id="user_nav" class="info">
+
+              <% if user_signed_in? %>
+                Ligado como <%= current_user.email %>. Não é a sua conta?
+                <%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
+                <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+              <% else %>
+                <%= link_to "Carrinho", carts_path, :class => "cart"%>
+                <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+              <% end %>
+            </div>
+>>>>>>> 7d1be819c9bcd363bf1eed2fb8d0c082e7012fdb
         </div>
-		  <% if request.path == "/" %>
-			<div class="container">
-				<div class="row mtop40 mbottom40">
-					<div class="span7">
-						<ul class="media-grid">
-							<% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
-								<li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
-							<%end%>
-							<% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
-								<li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
-							<%end%>
-						</ul>
-					</div>
-					<div class="span9 text-centered mtop20">
-						<h1>Criart Concept</h1>
-						<h3 class="home">Fazemos Jóias à sua medida!</h3>
-					</div>
-				</div>	
-			</div>
-		<% end %>
- 	  	</div>
+          <% if request.path == "/" %>
+            <div class="container">
+                <div class="row mtop40 mbottom40">
+                    <div class="span7">
+                        <ul class="media-grid">
+                            <% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
+                                <li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
+                            <%end%>
+                            <% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
+                                <li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
+                            <%end%>
+                        </ul>
+                    </div>
+                    <div class="span9 text-centered mtop20">
+                        <h1>Criart Concept</h1>
+                        <h3 class="home">Fazemos Jóias à sua medida!</h3>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+>>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
+        </div>
     </div>
 
     <div class="container">
+<<<<<<< HEAD
 	  <% if request.path == "/" %>
 		<div class="row mbottom40 mtop40">
 				<div class="span4 text-centered">
@@ -106,6 +138,14 @@
 	</div>
 	  
 	  <footer>
+=======
+
+    <div class="main">
+        <%= yield %>
+    </div>
+
+      <footer>
+>>>>>>> 5b71f592e0b7b89452d4afa5fdd8ea1b586cf8ea
         <p>&copy; Company 2011</p>
       </footer>
     </div> <!-- /container -->
