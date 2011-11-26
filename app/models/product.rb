@@ -20,6 +20,11 @@ class Product < ActiveRecord::Base
       :secret_access_key => ENV['S3_SECRET']
     }
 
+    attr_accessor :photo_file_name
+    attr_accessor :photo_content_type
+    attr_accessor :photo_file_size
+    attr_accessor :photo_updated_at
+
   private
 
   #vai assegurar que quando se apaga um producto que não existe uma linha de encomenda com esse.
