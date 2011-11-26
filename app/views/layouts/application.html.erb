@@ -59,11 +59,8 @@
                 <div class="row mtop40 mbottom40">
                     <div class="span7">
                         <ul class="media-grid">
-                            <% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
-                                <li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
-                            <%end%>
-                            <% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
-                                <li><%= link_to image_tag(product.photo.url(:small)), product_path(product), :class => "thumbnail"%></li>
+                            <% Product.find(:all, :order => 'updated_at desc', :limit => 12).each do |product|%>
+                                <li><%= link_to image_tag(product.photo.url(:thumb)), product_path(product), :class => "thumbnail"%></li>
                             <%end%>
                         </ul>
                     </div>
