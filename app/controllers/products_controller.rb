@@ -48,6 +48,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    puts params
     @product = Product.new(params[:product])
 
     respond_to do |format|
