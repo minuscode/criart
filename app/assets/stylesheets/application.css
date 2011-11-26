@@ -28,14 +28,19 @@ div.main
   	text-decoration: none;
 }
 
+
+.topbar
+{
+	position: static!important;
+	height: 60px!important;
+}
+
 .topbar.criart {
-height: 290px;
+height: 290px!important;
 background-color: #F1F1F1;
 background-image: none;
 }
 
-.topbar
-{position: static!important;}
 
 .topbar div.fill
 {
