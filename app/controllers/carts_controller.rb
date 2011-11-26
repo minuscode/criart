@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  
   # GET /carts
   # GET /carts.json
   def index

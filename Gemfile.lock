@@ -32,7 +32,12 @@ GEM
     annotate (2.4.0)
     ansi (1.4.1)
     arel (2.2.1)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    devise (1.5.1)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.1)
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
@@ -48,6 +53,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.3)
+    orm_adapter (0.0.5)
     pg (0.11.0)
     pg (0.11.0-x86-mingw32)
     polyglot (0.3.3)
@@ -95,6 +101,8 @@ GEM
     uglifier (1.1.0)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    warden (1.1.0)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
@@ -102,6 +110,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  devise (>= 1.5.0)
   jquery-rails
   pg
   rails (= 3.1.3)

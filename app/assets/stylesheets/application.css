@@ -5,11 +5,16 @@
  *= require_self
  *= require_tree . 
 */
-div#cart 
-{
-	float:left;
-}
 div.main 
 {
 	width:700px;
+}
+
+#user_nav{
+	float:right;
+	display: block;
+	  color: #444;
+  padding: 10px 10px 11px;
+  line-height: 19px;
+  text-decoration: none;
 }

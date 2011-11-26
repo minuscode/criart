@@ -1,4 +1,6 @@
 Criart::Application.routes.draw do
+  devise_for :users
+
   resources :line_items
 
   resources :carts
@@ -9,7 +11,7 @@ Criart::Application.routes.draw do
   resources :categories
   resources :products
   
-  root :to => "home#index", :as => 'home'
+  root :to => "home#index", :as => 'root'
   
   #root :to => "products#index"
 #  get "products/index"

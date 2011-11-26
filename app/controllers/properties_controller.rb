@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  
   # GET /properties
   # GET /properties.json
   def index
