@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_filter :authenticate_user!, :except => [:show, :index]
-  
+
   # GET /products
   # GET /products.json
   def index
@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     else
       @products = Product.where(:category_id => params[:category_id])
     end
-    
+
       @cart = current_cart
 
     respond_to do |format|
@@ -48,6 +48,7 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
+    puts params
     @product = Product.new(params[:product])
 
     respond_to do |format|

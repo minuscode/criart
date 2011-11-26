@@ -31,15 +31,23 @@
 </p>
 
 <p>
+  <b>Photo:</b>
+    <%= image_tag @product.photo.url %>
+    <%= image_tag @product.photo.url(:medium) %>
+    <%= image_tag @product.photo(:thumb) %>
+    <%= image_tag @product.photo(:large) %>
+</p>
+
+<p>
   <b>Visits:</b>
   <%= @product.visits %>
 </p>
 
 <p>
-	<b>Propriedades</b>
-	<% @product.properties.all.each do |property|%>
-	<p><%= property.name %></p>
-	<% end %>
+    <b>Propriedades</b>
+    <% @product.properties.all.each do |property|%>
+    <p><%= property.name %></p>
+    <% end %>
 </p>
 <%= button_to 'Adicionar', line_items_path(:product_id => @product),:remote => true %>
 
