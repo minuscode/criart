@@ -38,5 +38,6 @@ Criart::Application.configure do
     :password  => ENV['GMAIL_SMTP_PASSWORD'],
     :authentication => :plain
   }
+  config.serve_static_assets = false
 
 end

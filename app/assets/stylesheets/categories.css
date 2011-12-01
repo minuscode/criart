@@ -2,3 +2,22 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+.box
+{
+	background-color:#F1F1F1;
+	float:left;
+	margin-bottom: 5px;
+	margin-right: 20px;
+	padding: 10px;
+}
+.box img
+{
+	float:left;
+	margin-right: 15px;
+}
+
+.box form 
+{
+	margin-top: 20px;
+	float:left;
+}

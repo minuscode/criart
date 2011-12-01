@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @cart = current_cart
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @categories }
@@ -16,8 +16,9 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @products = @category.products
+    @products = @category.products.all
     @cart = current_cart
+    
     
     respond_to do |format|
       format.html # show.html.erb
@@ -41,12 +42,15 @@ class CategoriesController < ApplicationController
   def edit
     @category = Category.find(params[:id])
     @cart = current_cart
+    
   end
 
   # POST /categories
   # POST /categories.json
   def create
     @category = Category.new(params[:category])
+    @cart = current_cart
+    
 
     respond_to do |format|
       if @category.save
@@ -63,6 +67,7 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
+    @cart = current_cart
 
     respond_to do |format|
       if @category.update_attributes(params[:category])

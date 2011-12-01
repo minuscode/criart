@@ -51,9 +51,10 @@ class LineItemsController < ApplicationController
        respond_to do |format|
 
          if @line_item.save
-           format.html { redirect_to(line_item_path(@line_item)) }
-           format.json { render json: @line_item,
-             status: :created, location: @line_item }
+         #  format.html { redirect_to(line_item_path(@line_item)) }
+           format.js
+          # format.json { render json: @line_item,
+        #     status: :created, location: @line_item }
          else
            format.html { render action: "new" }
            format.json { render json: @line_item.errors,

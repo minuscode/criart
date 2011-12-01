@@ -5,11 +5,6 @@
  *= require_self
  *= require_tree . 
 */
-div.main 
-{
-	width:700px;
-}
-
 .info
 {
 	float:right;
@@ -28,11 +23,11 @@ div.main
   	text-decoration: none;
 }
 
-.topbar.criart {
-height: 450px;
+.topbar.fix{
+height: 60px;
 background-color: #F1F1F1;
 background-image: none;
-position: static;
+position:static;
 background-repeat: repeat-x;
 background-image: -khtml-gradient(linear,left top,left bottom,from(#fff),to(#f1f1f1));
 background-image: -moz-linear-gradient(#fff,#f1f1f1);
@@ -48,6 +43,32 @@ background-image: linear-gradient(#fff,#f1f1f1);
 box-shadow: 0 1px 3px rgba(0,0,0,0.25),inset 0 -1px 0 rgba(0,0,0,0.1);
 }
 
+div.topbar ul li a {
+text-align: center;
+margin-top: 15px;
+margin-bottom: 15px;
+padding-top: 5px;
+padding-bottom: 5px;
+font-size: 100%;
+color: #10516D;
+}
+
+div.topbar ul li > a.catmenu:hover {
+background:none;
+color:#10516D;
+font-size: bold;
+text-shadow:0 1px 1px rgba(0,0,0,0.25);
+}
+
+#totalElems
+{
+	margin 0 10px;
+}
+
+.topbar.criart {
+height: 340px;
+}
+
 h3.home {
 line-height: 150%;
 font-weight: normal;
@@ -60,17 +81,10 @@ font-weight: normal;
 font-size: 14px;
 color: gray;
 }
-div.topbar ul li a, #user_nav a {
-text-align: center;
-margin-bottom: 15px;
-padding-top: 5px;
-padding-bottom: 5px;
-font-size: 100%;
-color: #10516D;
-}
 
 .mtop40{margin-top:40px;}
 .mtop10{margin-top:10px;}
+.mtop20{margin-top:20px;}
 .mbottom40{margin-bottom:40px;}
 .text-centered {text-align:center;}
 

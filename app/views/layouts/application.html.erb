@@ -31,32 +31,38 @@
   </head>
   <body>
 <div>
-    <div class="topbar <%="criart" unless request.path != "/"%>">
+    <div class="topbar fix <%="criart" unless request.path != "/"%>">
       <!--div class="fill"-->
         <div class="container">
             <h3>
                 <%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
           <ul class="nav pills">
             <% Category.all.each do |category| %>
-                <li><%= link_to category.name , category_path(category) %></li>
+                <li><%= link_to category.name , category_path(category), :class => "catmenu" %></li>
             <% end %>
           </ul>
             <div id="user_nav" class="info">
 
+		    <%if request.path != user_session_path%>
               <% if user_signed_in? %>
                 <%= current_user.email %>
-                <%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
+                <%= link_to carts_path, :class => "btn cart"  do%>
+					Carrinho <span id="totalElems">(<%=@cart.line_items.count%>)</span>
+				<% end %>
                 <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
-              <% else %>
-                <%= link_to "Carrinho", carts_path, :class => "cart"%>
-                <%= link_to "Registar", new_user_registration_path %> ou <%= link_to "Entrar", new_user_session_path %>
+              	<% else %>
+                <%= link_to carts_path, :class => "btn cart" do%>
+					Carrinho <span id="totalElems">(<%=@cart.line_items.count%>)</span>
+				<% end %>	
+                <%= link_to "Registar", new_user_registration_path, :class => "btn" %> ou <%= link_to "Entrar", new_user_session_path, :class => "btn" %>
               <% end %>
+			<%end%>
             </div>
 
         </div>
           <% if request.path == "/" %>
             <div class="container">
-                <div class="row mtop40 mbottom40">
+                <div class="row mtop20 mbottom40">
                     <div class="span9">
                         <div class="media-grid">
                             <% Product.find(:all, :order => 'updated_at desc', :limit => 9).each do |product|%>
