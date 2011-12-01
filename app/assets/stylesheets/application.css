@@ -53,20 +53,8 @@ div.main
     text-decoration: none;
 }
 
-<<<<<<< HEAD
-
-.topbar
-{
-    position: static!important;
-    height: 60px!important;
-}
-
-.topbar.criart {
-height: 290px!important;
-=======
 .topbar.fix{
 height: 60px;
->>>>>>> 81cbc83251538ac8d57e2dda6aa860aa4d090512
 background-color: #F1F1F1;
 background-image: none;
 position:static;
@@ -104,18 +92,11 @@ text-shadow:0 1px 1px rgba(0,0,0,0.25);
 
 #totalElems
 {
-<<<<<<< HEAD
-    background-color:#F1F1F1!important;
-    background-image: none;
-    color: #BFBFBF;
-    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-=======
     margin 0 10px;
 }
 
 .topbar.criart {
 height: 340px;
->>>>>>> 81cbc83251538ac8d57e2dda6aa860aa4d090512
 }
 
 h3.home {
