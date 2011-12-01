@@ -43,22 +43,21 @@
           </ul>
             <div id="user_nav" class="info">
 
-            <%if request.path != user_session_path%>
+            <%if !@cart.nil? %>
               <% if user_signed_in? %>
                 <%= current_user.email %>
                 <%= link_to carts_path, :class => "btn cart"  do%>
-                    Carrinho <span id="totalElems">(<%=@cart.line_items.count%>)</span>
+                    Carrinho <span id="totalElems">(<%=@cart.total_quantity%>)</span>
                 <% end %>
                 <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
                 <% else %>
                 <%= link_to carts_path, :class => "btn cart" do%>
-                    Carrinho <span id="totalElems">(<%=@cart.line_items.count%>)</span>
+                    Carrinho <span id="totalElems">(<%=@cart.total_quantity%>)</span>
                 <% end %>
                 <%= link_to "Entrar", new_user_session_path, :class => "btn" %>
               <% end %>
             <%end%>
             </div>
-
         </div>
           <% if request.path == "/" %>
             <div class="container">

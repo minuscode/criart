@@ -12,18 +12,33 @@
 	<div class="row">
 	<div class="span6">
 	<% for i in 0...@products.length do%>
-	<div class="box span6">
+	<% if i%2 != 0%>
+	<div class="box span5">
     	<%= image_tag @products[i].photo.url(:medium) %>
     	<%= @products[i].name%><br/><br/>
 		Preço: <%= number_to_currency(@products[i].price, :locale => :fr)%> 
 		<br/>
 		<br/>
-		<%= button_to 'Adicionar', line_items_path(:product_id => @products[i]), :class => "btn success" %>
+		<%= button_to 'Adicionar', line_items_path(:product_id => @products[i]), :class => "btn success", :remote => true %>
 		<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info" %>
 	</div>
 	<%end%>
+	<%end%>
 	</div>
-	<div class="span6"><div class="box"></div></div>
+	<div class="span6">
+	<% for i in 0...@products.length do%>
+	<% if i%2 == 0%>
+	<div class="box span5">
+    	<%= image_tag @products[i].photo.url(:medium) %>
+    	<%= @products[i].name%><br/><br/>
+		Preço: <%= number_to_currency(@products[i].price, :locale => :fr)%> 
+		<br/>
+		<br/>
+		<%= button_to 'Adicionar', line_items_path(:product_id => @products[i]), :class => "btn success", :remote => true %>
+		<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info" %>
+	</div>
+	<%end%>
+	<%end%></div>
 	</div>
 </div>
 </div>
