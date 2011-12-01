@@ -1,7 +1,5 @@
 <h2>Sign in</h2>
 
-<%= link_to image_tag("/assets/facebook-login.png"), user_omniauth_authorize_path(:facebook)%>
-
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />
   <%= f.email_field :email %></div>
