@@ -30,41 +30,47 @@
     <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
   </head>
   <body>
-
-    <div class="topbar <%="criart" unless request.path != "/"%>">
-      <div class="fill">
+<div>
+    <div class="topbar fix <%="criart" unless request.path != "/"%>">
+      <!--div class="fill"-->
         <div class="container">
             <h3>
                 <%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
           <ul class="nav pills">
             <% Category.all.each do |category| %>
-                <li><%= link_to category.name , category_path(category) %></li>
+                <li><%= link_to category.name , category_path(category), :class => "catmenu" %></li>
             <% end %>
           </ul>
             <div id="user_nav" class="info">
 
+            <%if request.path != user_session_path%>
               <% if user_signed_in? %>
                 <%= current_user.email %>
-                <%= link_to "Carrinho", carts_path, :class => "cart"%><span id="totalElems"><%=@cart.line_items.count%></span>
+                <%= link_to carts_path, :class => "btn cart"  do%>
+                    Carrinho <span id="totalElems">(<%=@cart.line_items.count%>)</span>
+                <% end %>
                 <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
-              <% else %>
-                <%= link_to "Carrinho", carts_path, :class => "cart"%>
-                <%= link_to "Registar", new_user_registration_path %> ou<%= link_to "Entrar", new_user_session_path %>
+                <% else %>
+                <%= link_to carts_path, :class => "btn cart" do%>
+                    Carrinho <span id="totalElems">(<%=@cart.line_items.count%>)</span>
+                <% end %>
+                <%= link_to "Entrar", new_user_session_path, :class => "btn" %>
               <% end %>
+            <%end%>
             </div>
 
         </div>
           <% if request.path == "/" %>
             <div class="container">
-                <div class="row mtop40 mbottom40">
-                    <div class="span7">
-                        <ul class="media-grid">
-                            <% Product.find(:all, :order => 'updated_at desc', :limit => 12).each do |product|%>
-                                <li><%= link_to image_tag(product.photo.url(:thumb)), product_path(product), :class => "thumbnail"%></li>
+                <div class="row mtop20 mbottom40">
+                    <div class="span9">
+                        <div class="media-grid">
+                            <% Product.find(:all, :order => 'updated_at desc', :limit => 9).each do |product|%>
+                                <div style="float:left;"><%= link_to image_tag(product.photo.url(:thumb), :class => "thumbnail"), product_path(product)%></div>
                             <%end%>
-                        </ul>
+                        </div>
                     </div>
-                    <div class="span9 text-centered mtop20">
+                    <div class="span7 text-centered mtop20">
                         <h1>Criart Concept</h1>
                         <h3 class="home">Fazemos Jóias à sua medida!</h3>
                     </div>
@@ -72,11 +78,11 @@
             </div>
         <% end %>
         </div>
-    </div>
+    <!--/div-->
 
     <div class="container">
       <% if request.path == "/" %>
-        <div class="row mbottom40 mtop40">
+        <div class="row mbottom40 mtop10">
                 <div class="span4 text-centered">
                     <div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/projects.png" title="Projects" alt="Projects" width="154px" height="90px"></div>
                     <h2>Joias</h2>
@@ -107,6 +113,7 @@
         <p>&copy; Company 2011</p>
       </footer>
     </div> <!-- /container -->
+<div>
 
   </body>
 </html>

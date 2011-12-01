@@ -1,35 +1,30 @@
 <p id="notice"><%= notice %></p>
-<h1>Listing products</h1>
+<% session[:back] = request.fullpath %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Reference</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Image url</th>
-    <th>Thumb url</th>
-    <th>Visits</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.reference %></td>
-    <td><%= product.description %></td>
-    <td><%= product.price %></td>
-    <td><%= product.image_url %></td>
-    <td><%= product.thumb_url %></td>
-    <td><%= product.visits %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+<h1><%=@category.name%></h1>
 
 
+<div class="row">
+<div class="span4">
+	FILTROS
+</div>
+<div class="span12">
+	<div class="row">
+	<div class="span6">
+	<% for i in 0...@products.length do%>
+	<div class="box span6">
+    	<%= image_tag @products[i].photo.url(:medium) %>
+    	<%= @products[i].name%><br/><br/>
+		Preço: <%= number_to_currency(@products[i].price, :locale => :fr)%> 
+		<br/>
+		<br/>
+		<%= button_to 'Adicionar', line_items_path(:product_id => @products[i]), :class => "btn success" %>
+		<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info" %>
+	</div>
+	<%end%>
+	</div>
+	<div class="span6"><div class="box"></div></div>
+	</div>
+</div>
+</div>
 <%= link_to 'Back', root_path %>

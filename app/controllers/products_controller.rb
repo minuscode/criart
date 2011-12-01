@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
     else
       @products = Product.where(:category_id => params[:category_id])
     end
-
-      @cart = current_cart
+    
+    @cart = current_cart
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,8 +50,8 @@ class ProductsController < ApplicationController
   # POST /products
   # POST /products.json
   def create
-    puts params
     @product = Product.new(params[:product])
+    @cart = current_cart
 
     respond_to do |format|
       if @product.save
