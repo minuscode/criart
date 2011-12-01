@@ -35,9 +35,10 @@ a.auth_button:active {
     float:right;
     padding: 10px 0px;
 }
-.info a{
+.info a.btn{
     padding: 10px 10px 11px;
     cursor:pointer;
+	text-decoration: none;
 }
 
 #user_nav
@@ -85,10 +86,6 @@ font-size: bold;
 text-shadow:0 1px 1px rgba(0,0,0,0.25);
 }
 
-#totalElems
-{
-    margin: 0 10px;
-}
 
 .topbar.criart {
 height: 340px;

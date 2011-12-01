@@ -7,17 +7,54 @@
 	background-color:#F1F1F1;
 	float:left;
 	margin-bottom: 5px;
-	margin-right: 20px;
-	padding: 10px;
+/*	margin-right: 20px;*/
+	padding: 15px 10px 0px 10px;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#fffff5',endColorstr='#F1F1F1');
+	background: -webkit-gradient(linear,left top,left bottom,from(#FFFFF5),to(#F1F1F1));
+	background: -moz-linear-gradient(top,#FFFFF5,#F1F1F1);
+	border: 1px solid #DFDDB5;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	-moz-box-shadow: 0 1px 0 #fff;
+	-webkit-box-shadow: 0 1px 0 #fff;
+	box-shadow: 0 1px 0 #fff;
 }
-.box img
-{
-	float:left;
-	margin-right: 15px;
-}
-
 .box form 
 {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 	float:left;
+	margin:0;
+}
+
+.box form input
+{
+	padding:0;
+	width:auto;
+}
+
+.box .price
+{
+	float:left;
+	margin:10px;
+	width: 115px;
+}
+.box .photo
+{
+	text-align:center;
+}
+.box p
+{
+	margin: 10px 0px 0px 10px;
+	font-size: 12px;
+}
+.box p a
+{	
+	color: #2166A2;
+	text-decoration:none;
+}
+.box .abuttons
+{
+	float:left;
+	margin-top: 10px;
 }

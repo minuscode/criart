@@ -8,19 +8,26 @@
 <div class="span4">
 	FILTROS
 </div>
+
 <div class="span12">
 	<div class="row">
 	<div class="span6">
 	<% for i in 0...@products.length do%>
 	<% if i%2 != 0%>
 	<div class="box span5">
-    	<%= image_tag @products[i].photo.url(:medium) %>
-    	<%= @products[i].name%><br/><br/>
-		Preço: <%= number_to_currency(@products[i].price, :locale => :fr)%> 
-		<br/>
-		<br/>
-		<%= button_to 'Adicionar', line_items_path(:product_id => @products[i]), :class => "btn success", :remote => true %>
-		<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info" %>
+		<div class="photo">
+    	<%= link_to image_tag(@products[i].photo.url(:medium)), product_path(@products[i]) %>
+    	</div>
+		<p><strong><%= link_to @products[i].name, product_path(@products[i])%></strong></p>
+		<div>
+			<div class="price">
+				<strong><%= number_to_currency(@products[i].price, :locale => :fr)%></strong>
+			</div>
+			<div class="abuttons">
+				<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small", :remote => true %>
+				<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info small" %>
+			</div>
+		</div>
 	</div>
 	<%end%>
 	<%end%>
@@ -29,13 +36,19 @@
 	<% for i in 0...@products.length do%>
 	<% if i%2 == 0%>
 	<div class="box span5">
-    	<%= image_tag @products[i].photo.url(:medium) %>
-    	<%= @products[i].name%><br/><br/>
-		Preço: <%= number_to_currency(@products[i].price, :locale => :fr)%> 
-		<br/>
-		<br/>
-		<%= button_to 'Adicionar', line_items_path(:product_id => @products[i]), :class => "btn success", :remote => true %>
-		<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info" %>
+    		<div class="photo">
+	    	<%= link_to image_tag(@products[i].photo.url(:medium)), product_path(@products[i]) %>
+	    	</div>
+			<p><strong><%= link_to @products[i].name, product_path(@products[i])%></strong></p>
+			<div>
+				<div class="price">
+					<strong><%= number_to_currency(@products[i].price, :locale => :fr)%></strong>
+				</div>
+				<div class="abuttons">
+					<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small", :remote => true %>
+					<%= button_to 'Facebook', line_items_path(:product_id => @products[i]), :class => "btn info small" %>
+				</div>
+			</div>
 	</div>
 	<%end%>
 	<%end%></div>
