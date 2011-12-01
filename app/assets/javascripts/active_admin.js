@@ -1,5 +1,5 @@
 // require active_admin/base     // line disabled since it includes an old version!
-//= require jquery.tokeninput 
+//= require jquery.tokeninput
 
 /* Active Admin JS */
 /* copied from 'app/assets/javascripts/base.js in active_admin source code */
