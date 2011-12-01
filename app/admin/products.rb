@@ -1,21 +1,21 @@
 ActiveAdmin.register Product do
   menu :label => "Produtos"
-  #scope :unreleased
+
   scope :all, :default => true
   scope :rings do |products|
-      products.where("category_id = ?", Category.where('name = "Aneis"'))
+      products.where("category_id = ?", Category.where('id = 1'))
   end
 
   scope :bracelets do |products|
-    products.where("category_id = ?", Category.where('name = "Pulseiras"'))
+    products.where("category_id = ?", Category.where('id = 2'))
   end
 
   scope :earrings do |products|
-    products.where("category_id = ?", Category.where('name = "Brincos"'))
+    products.where("category_id = ?", Category.where('id = 3'))
   end
 
   scope :necklaces do |products|
-    products.where("category_id = ?", Category.where('name = "Colares"'))
+    products.where("category_id = ?", Category.where('id = 4'))
   end
 
   index :as => :grid do |product|
