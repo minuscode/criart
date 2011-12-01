@@ -12,6 +12,7 @@ Category.create(name: "Aneis", description: "")
 Category.create(name: "Pulseiras", description: "")
 Category.create(name: "Brincos", description: "")
 cat = Category.create(name: "Colares", description: "")
+Category.create(name: "Diversos", description: "")
 
 Product.create(name: "Produto1", category: cat, price: 20.2)
 

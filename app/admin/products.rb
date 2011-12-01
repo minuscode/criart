@@ -2,20 +2,11 @@ ActiveAdmin.register Product do
   menu :label => "Produtos"
 
   scope :all, :default => true
-  scope :rings do |products|
-      products.where("category_id = ?", Category.where('id = 1'))
-  end
 
-  scope :bracelets do |products|
-    products.where("category_id = ?", Category.where('id = 2'))
-  end
-
-  scope :earrings do |products|
-    products.where("category_id = ?", Category.where('id = 3'))
-  end
-
-  scope :necklaces do |products|
-    products.where("category_id = ?", Category.where('id = 4'))
+  Category.all.each do |category|
+    scope category.name.to_sym do |products|
+      products.where("category_id = ?", Category.where('id = ' + category.id.to_s))
+    end
   end
 
   index :as => :grid do |product|
