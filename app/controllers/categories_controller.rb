@@ -16,8 +16,30 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @products = @category.products.all
+    if(params[:property_id].blank?)
+      @p = @category.products.scoped
+    else
+      @p = Property.find(params[:property_id]).products.scoped
+    end
+    
+    range = params[:range]
+    
+    if(!range.blank?)
+      if range== "1"
+        @products ||= @p.where(:price => 0...10)
+      elsif(range == "2")
+        @products ||= @p.where(:price => 10...50)
+      elsif(range == "3")
+        @products ||= @p.where("price > 50")
+      else
+        @products ||= @p
+      end
+    else
+      @products ||= @p
+    end
+    
     @cart = current_cart
+    @properties ||= Property.all
     
     
     respond_to do |format|

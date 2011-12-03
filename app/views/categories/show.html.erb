@@ -9,27 +9,23 @@
 	<div class="filters">
 		<p>Propriedades</p>
 		<ul>
+			<% @properties.each do |property| %>
 			<li>
-				Ouro
+				<%= link_to property.name + " ("+property.products.count.to_s+")", category_path(:property_id => property.id, :range => params[:range]) %>
 			</li>
-			<li>
-				Prata
-			</li>
-			<li>
-				Bronze
-			</li>
+			<%end%>
 		</ul>
 		<span class="separator">&nbsp;</span>
 		<p>Preço</p>
 		<ul>
 			<li>
-				Entre 0€ e 10€
+				<%= link_to "Entre 0€ e 10€", category_path(:property_id => params[:property_id], :range => "1") %>
 			</li>
 			<li>
-				Entre 10€ e 50€
+				<%= link_to "Entre 10€ e 50€", category_path(:property_id => params[:property_id], :range => "2") %>
 			</li>
 			<li>
-				Mais de 50€
+				<%= link_to "Mais de 50€", category_path(:property_id => params[:property_id], :range => "3") %>
 			</li>
 		</ul>
 	</div>
