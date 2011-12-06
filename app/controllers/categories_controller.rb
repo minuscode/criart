@@ -16,10 +16,13 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    if(params[:property_id].blank?)
+    
+    if(params[:property_id].nil?)
       @p = @category.products.scoped
     else
-      @p = Property.find(params[:property_id]).products.scoped
+        @p = Array.new
+        @p.concat(Product.find(:all, :include => :properties, :conditions => {:properties => {:id => params[:property_id].dup.split(",")}}))
+        puts @p
     end
     
     range = params[:range]
@@ -40,7 +43,6 @@ class CategoriesController < ApplicationController
     
     @cart = current_cart
     @properties ||= Property.all
-    
     
     respond_to do |format|
       format.html # show.html.erb
