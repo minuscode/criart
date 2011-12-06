@@ -31,6 +31,7 @@ ActiveAdmin.register Product do
         f.inputs "Content" do
           f.input :reference, :label => "Referencia"
           f.input :description, :label => "Descricao"
+          f.input :properties, :label => "Propriedades"
         end
         f.buttons
       end
