@@ -1,0 +1,29 @@
+<%= form_for(@range_filter) do |f| %>
+  <% if @range_filter.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@range_filter.errors.count, "error") %> prohibited this range_filter from being saved:</h2>
+
+      <ul>
+      <% @range_filter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label :valueMin %><br />
+    <%= f.text_field :valueMin %>
+  </div>
+  <div class="field">
+    <%= f.label :valueMax %><br />
+    <%= f.text_field :valueMax %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

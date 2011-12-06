@@ -1,4 +1,6 @@
 class Product < ActiveRecord::Base
+  scope :bycategory, lambda { |categories| {:include => :properties, :conditions => {:properties => {:id => categories.dup.split(",")}}}}
+  
   validates :name,:price, :presence => true
   has_many :line_items
   belongs_to :category

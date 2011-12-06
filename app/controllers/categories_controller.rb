@@ -16,33 +16,31 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
+    @products_all = @category.products
     
     if(params[:property_id].nil?)
       @p = @category.products.scoped
     else
-        @p = Array.new
-        @p.concat(Product.find(:all, :include => :properties, :conditions => {:properties => {:id => params[:property_id].dup.split(",")}}))
-        puts @p
+      @p = @category.products.scoped.bycategory(params[:property_id])
+      @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
     end
     
-    range = params[:range]
+    range = params[:range_id]
     
     if(!range.blank?)
-      if range== "1"
-        @products ||= @p.where(:price => 0...10)
-      elsif(range == "2")
-        @products ||= @p.where(:price => 10...50)
-      elsif(range == "3")
-        @products ||= @p.where("price > 50")
-      else
-        @products ||= @p
-      end
+        @curr_range = RangeFilter.find(range)
+        if !@curr_range.valueMax.nil?
+          @products ||= @p.where(:price => @curr_range.valueMin...@curr_range.valueMax)
+        else
+          @products ||= @p.where("price >= "+ @curr_range.valueMin)
+        end
     else
       @products ||= @p
     end
     
     @cart = current_cart
     @properties ||= Property.all
+    @ranges ||= RangeFilter.all
     
     respond_to do |format|
       format.html # show.html.erb

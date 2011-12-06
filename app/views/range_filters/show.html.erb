@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @range_filter.description %>
+</p>
+
+<p>
+  <b>Valuemin:</b>
+  <%= @range_filter.valueMin %>
+</p>
+
+<p>
+  <b>Valuemax:</b>
+  <%= @range_filter.valueMax %>
+</p>
+
+
+<%= link_to 'Edit', edit_range_filter_path(@range_filter) %> |
+<%= link_to 'Back', range_filters_path %>

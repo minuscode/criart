@@ -1,0 +1,27 @@
+<h1>Listing range_filters</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Valuemin</th>
+    <th>Valuemax</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @range_filters.each do |range_filter| %>
+  <tr>
+    <td><%= range_filter.description %></td>
+    <td><%= range_filter.valueMin %></td>
+    <td><%= range_filter.valueMax %></td>
+    <td><%= link_to 'Show', range_filter %></td>
+    <td><%= link_to 'Edit', edit_range_filter_path(range_filter) %></td>
+    <td><%= link_to 'Destroy', range_filter, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Range filter', new_range_filter_path %>
