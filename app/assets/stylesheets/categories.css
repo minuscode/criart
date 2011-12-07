@@ -80,3 +80,10 @@
 {
 	margin:0;
 }
+
+a.removeFilter
+{
+	padding:8px 8px;
+	background: transparent url("icon-close.png") no-repeat center;
+	float: right;
+}

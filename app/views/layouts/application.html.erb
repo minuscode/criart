@@ -109,6 +109,10 @@
             </div>
         <% end %>
     <div class="main">
+		<%if notice%>
+			<p><%=notice%></p>
+		<%end%>
+		
         <%= yield %>
     </div>
 

@@ -7,15 +7,19 @@
 			<%values = params[:property_id].dup%>
 			<%values = values.split(",")%>
 			<%values.delete(p.id.to_s)%>
+			<%if values.count > 0%>
 			<%values = values.join(",")%>
-			<%= link_to "Remover", category_path(:property_id => values, :range_id => params[:range_id]) %>
+			<%= link_to "", category_path(:property_id => values, :range_id => params[:range_id]) , :class => "removeFilter"%>
+			<%else%>
+			<%= link_to "", category_path(:range_id => params[:range_id]) , :class => "removeFilter"%>
+			<%end%>
 		</li>
 	<%end%>
 </ul>
 <%end%>
 <%if !params[:range_id].blank?%>
 	<ul>
-		<li><%=@curr_range.description%><%= link_to "Remover", category_path(:property_id => params[:property_id]) %></li>
+		<li><%=@curr_range.description%><%= link_to "", category_path(:property_id => params[:property_id]), :class => "removeFilter" %></li>
 	</ul>
 <%end%>
 
@@ -24,7 +28,7 @@
 <p>Propriedades</p>
 	<ul>
 		<li>
-		<%= link_to "Qualquer ("+@products_all.count.to_s+")", category_path %>
+		<%= link_to "Qualquer ("+@products_all.count.to_s+")", category_path(:range_id => params[:range_id]) %>
 		</li>
 		<% @properties.each do |property| %>
 		<li>

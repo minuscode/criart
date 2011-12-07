@@ -2,3 +2,15 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.mtop30
+{margin-top:30px;}
+
+.span7
+{text-align:center;}
+
+.mtop60
+{margin-top:60px;}
+
+.mbottom60
+{margin-bottom:60px;}
