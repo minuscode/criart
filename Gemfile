@@ -25,7 +25,7 @@ group :assets do
 end
 
 gem 'sass-rails',   '~> 3.1.5'
-gem 'jquery-rails'
+gem 'jquery-rails', '> 1.0.12'
 gem "activeadmin"
 
 # Annotate models

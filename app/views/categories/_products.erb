@@ -8,7 +8,7 @@
 	<p><strong><%= link_to @products[i].name, product_path(@products[i])%></strong></p>
 	<div>
 		<div class="price">
-			<strong><%= number_to_currency(@products[i].price, :locale => :fr)%></strong>
+			<strong><%= number_to_currency(@products[i].price, :unit => "&euro;" )%></strong>
 		</div>
 		<div class="abuttons">
 			<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small", :remote => true %>
@@ -29,7 +29,7 @@
 		<p><strong><%= link_to @products[i].name, product_path(@products[i])%></strong></p>
 		<div>
 			<div class="price">
-				<strong><%= number_to_currency(@products[i].price, :locale => :fr)%></strong>
+				<strong><%= number_to_currency(@products[i].price, :unit => "&euro;")%></strong>
 			</div>
 			<div class="abuttons">
 				<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small", :remote => true %>

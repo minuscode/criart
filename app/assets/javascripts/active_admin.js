@@ -1,5 +1,7 @@
 // require active_admin/base     // line disabled since it includes an old version!
 // require jquery.tokeninput
+//= require jquery
+//= require jquery_ujs
 //= require jquery-ui
 
 /* Active Admin JS */

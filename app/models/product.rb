@@ -5,6 +5,9 @@ class Product < ActiveRecord::Base
   has_many :line_items
   belongs_to :category
   has_and_belongs_to_many :properties
+  
+  has_many :product_catalogs
+  has_many :catalogs, :through => :product_catalogs
 
   before_destroy :ensure_not_referenced_by_any_line_item
 

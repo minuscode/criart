@@ -1,0 +1,5 @@
+<%= semantic_form_for [:admin, @catalog] do |f| %>
+  <%= f.inputs "Base" do f.input :name, :label => "Nome" end%>
+  <%= f.inputs "Produtos" do f.input :products, :as => :check_boxes, :label => "Associar Produtos" end%>
+  <%= f.buttons%>
+<% end %>

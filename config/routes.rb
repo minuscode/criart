@@ -1,4 +1,6 @@
 Criart::Application.routes.draw do
+  resources :catalogs
+
   resources :range_filters
 
   ActiveAdmin.routes(self)

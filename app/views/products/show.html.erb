@@ -10,7 +10,7 @@
 			<p>
 			  <b>
 				<strong>
-			  		<%= number_to_currency(@product.price, :locale => :fr)%></b>
+			  		<%= number_to_currency(@product.price, :unit => "&euro;" )%></b>
 					<%= button_to 'Adicionar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
 				</strong>
 			</p>
