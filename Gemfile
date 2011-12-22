@@ -28,6 +28,8 @@ gem 'sass-rails',   '~> 3.1.5'
 gem 'jquery-rails', '> 1.0.12'
 gem "activeadmin"
 
+gem 'kaminari'
+
 # Annotate models
 gem 'annotate'
 

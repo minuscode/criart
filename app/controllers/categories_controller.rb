@@ -16,7 +16,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-    @products_all = @category.products
+    @products_all = @category.products.order("name")
     
     if(params[:property_id].nil?)
       @p = @category.products.scoped
@@ -38,6 +38,8 @@ class CategoriesController < ApplicationController
       @products ||= @p
     end
     
+    
+    @products = @products.page(params[:page]).per(6)
     @cart = current_cart
     @properties ||= Property.all
     @ranges ||= RangeFilter.all

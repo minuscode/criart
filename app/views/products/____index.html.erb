@@ -1,0 +1,84 @@
+<h1>Listing products</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Reference</th>
+    <th>Description</th>
+    <th>Price</th>
+    <th>Image url</th>
+    <th>Thumb url</th>
+    <th>Visits</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.reference %></td>
+    <td><%= product.description %></td>
+    <td><%= product.price %></td>
+    <td><%= product.image_url %></td>
+    <td><%= product.thumb_url %></td>
+    <td><%= product.visits %></td>
+    <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Edit', edit_product_path(product) %></td>
+    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Product', new_product_path %>
+
+<p>
+  <b>Name:</b>
+  <%= @product.name %>
+</p>
+
+<p>
+  <b>Reference:</b>
+  <%= @product.reference %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @product.description %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @product.price %>
+</p>
+
+<p>
+  <b>Image url:</b>
+  <%= @product.image_url %>
+</p>
+
+<p>
+  <b>Thumb url:</b>
+  <%= @product.thumb_url %>
+</p>
+
+<p>
+  <b>Photo:</b>
+    <%=  @product.photo.url(:medium) %>
+    <%= image_tag @product.photo.url(:medium) %>
+</p>
+
+<p>
+  <b>Visits:</b>
+  <%= @product.visits %>
+</p>
+
+<p>
+    <b>Propriedades</b>
+    <% @product.properties.all.each do |property|%>
+    <p><%= property.name %></p>
+    <% end %>
+</p>
+

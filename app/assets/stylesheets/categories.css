@@ -87,3 +87,13 @@ a.removeFilter
 	background: transparent url("icon-close.png") no-repeat center;
 	float: right;
 }
+
+.pagination ul a
+{
+	margin: 0px;	
+}
+
+.pagination ul
+{
+	margin: 10px 0px 0px 20px;	
+}
