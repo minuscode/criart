@@ -1,23 +1,24 @@
+<div id="notice" class="alert-message"><a class="close" href="#">×</a><p><%=notice%><p></div>
 <div class="container">
     <div class="row mtop60 mbottom60">
 		<div class="span7">
 			<%= image_tag(@product.photo.url(:large), :class => "thumbnail") %>
 		</div>	
-		<div class="span9 mtop30">
-			<p>
+		<div class="span9">
+			<p class="mbottom30">
 			  <b><%= @product.name %></b>
 			</p>
-			<p>
-			  <b>
+			<p class="priceD">
 				<strong>
-			  		<%= number_to_currency(@product.price, :unit => "&euro;" )%></b>
-					<%= button_to 'Adicionar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
+			  		<b><%= number_to_currency(@product.price, :unit => "&euro;" )%></b>
+					<%= button_to 'Comprar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
 				</strong>
 			</p>
-			<p>
+			<p class="mbottom20">
 				<b>Descrição</b><br/>
-				  <%= @product.description%>
+				<span class="description"><%= @product.description%></span>
 			</p>
+			<%= facebook_like :url => url_for(:only_path => false) %>
 		</div>
 	</div>
 </div>

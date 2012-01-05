@@ -1,10 +1,10 @@
-<p id="notice"><%= notice %></p>
 <% session[:back] = request.fullpath %>
-
+<div id="notice" class="alert-message"><a class="close" href="#">×</a><p><%=notice%><p></div>
 <h1><%=@category.name%></h1>
 <div class="row">
 <div class="span4">
 	<div class="filters">
+		<h3>Filtros</h3>
 		<%= render "filters" %>
 	</div>
 </div>

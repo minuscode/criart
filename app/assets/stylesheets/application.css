@@ -105,9 +105,34 @@ color: gray;
 }
 
 .mtop40{margin-top:40px;}
-.mtop10{margin-top:10px;}
+.mtop30{margin-top:30px;}
 .mtop20{margin-top:20px;}
+.mtop10{margin-top:10px;}
 .mbottom40{margin-bottom:40px;}
+.mbottom30{margin-bottom:30px;}
+.mbottom20{margin-bottom:20px;}
+.mbottom10{margin-bottom:10px;}
 .text-centered {text-align:center;}
 
 body{padding-top:0px!important;}
+
+#notice
+{
+	display:none;
+	margin:10px;
+}
+
+#notice p
+{
+	color:white;
+}
+
+#notice a
+{
+	text-decoration:none;
+}
+
+.main h1
+{
+	margin: 18px;
+}

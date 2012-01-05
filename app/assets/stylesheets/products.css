@@ -14,3 +14,25 @@
 
 .mbottom60
 {margin-bottom:60px;}
+
+iframe
+{
+	height:70px;
+}
+iframe.count
+{
+	width:130px;
+}
+
+.priceD
+{
+	float:left;
+	width:210px;
+	font-size: 2em;
+	color: #57A957;
+}
+
+.description
+{
+	margin: 10px;
+}

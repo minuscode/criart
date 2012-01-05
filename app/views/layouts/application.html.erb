@@ -64,7 +64,7 @@
                 <div class="row mtop20 mbottom40">
                     <div class="span9">
                         <div class="media-grid">
-                            <% Product.find(:all, :order => 'updated_at desc', :limit => 9).each do |product|%>
+                            <% Product.find(:all, :order => 'updated_at desc', :limit => 8).each do |product|%>
                                 <div style="float:left;"><%= link_to image_tag(product.photo.url(:thumb), :class => "thumbnail"), product_path(product)%></div>
                             <%end%>
                         </div>
@@ -72,6 +72,7 @@
                     <div class="span7 text-centered mtop20">
                         <h1>Criart Concept</h1>
                         <h3 class="home">Fazemos Jóias à sua medida!</h3>
+						<%= facebook_like :url => root_url%>
                     </div>
                 </div>
             </div>
@@ -81,7 +82,7 @@
 
     <div class="container">
       <% if request.path == "/" %>
-        <div class="row mbottom40 mtop10">
+        <div class="row mbottom40 mtop20">
                 <div class="span4 text-centered">
                     <!--<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/projects.png" title="Projects" alt="Projects" width="154px" height="90px"></div>-->
                     <div><img src="/assets/icon-jewel.png" title="Projects" alt="Projects"></div>
@@ -110,7 +111,7 @@
         <% end %>
     <div class="main">
 		<%if notice%>
-			<p><%=notice%></p>
+			<div id="notice" class="alert-message"><p><%=notice%><p></div>
 		<%end%>
 		
         <%= yield %>
