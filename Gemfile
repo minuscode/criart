@@ -30,6 +30,8 @@ gem "activeadmin"
 
 gem 'kaminari'
 
+gem 'meta-tags', :require => 'meta_tags'
+
 # Annotate models
 gem 'annotate'
 
@@ -38,9 +40,6 @@ gem 'aws-s3'
 
 # File Handling
 gem 'paperclip'
-
-
-
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

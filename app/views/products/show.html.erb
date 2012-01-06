@@ -14,13 +14,17 @@
 					<%= button_to 'Comprar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
 				</strong>
 			</p>
+			<% if !@product.description.blank? %>
 			<p class="mbottom20">
 				<b>Descrição</b><br/>
 				<span class="description"><%= @product.description%></span>
 			</p>
+			<%end%>
 			<%= facebook_like :url => url_for(:only_path => false) %>
 		</div>
 	</div>
 </div>
+<% set_meta_tags :title =>  @product.name,
+                 :description => @product.description %>
 
 
