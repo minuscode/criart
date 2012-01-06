@@ -121,4 +121,11 @@ a.removeFilter
 .pagination ul
 {
 	margin: 10px 0px 0px 20px;	
+	float:right;
+}
+
+.pagination ul.last
+{
+	margin: 10px 0px 0px 20px;	
+	float:left;
 }
