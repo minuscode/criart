@@ -11,11 +11,12 @@ class Product < ActiveRecord::Base
 
   before_destroy :ensure_not_referenced_by_any_line_item
 
+##330x230
   has_attached_file :photo,
     :styles => {
       :thumb  => "90x90",
       :medium => "210x150",
-      :large => "330x230"
+      :large => "630x430"
     },
     :storage => :s3,
     :bucket => 'criart',

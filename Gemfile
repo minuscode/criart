@@ -30,6 +30,7 @@ gem "activeadmin"
 
 gem 'kaminari'
 
+# For meta update
 gem 'meta-tags', :require => 'meta_tags'
 
 # Annotate models

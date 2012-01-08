@@ -6,8 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= bootstrapAlert
 //= require_tree .
 
-
-$(".close").live("click", function(){$("#notice").fadeOut();})
+jQuery(".close").live("click", function(){jQuery("#notice").fadeOut();})

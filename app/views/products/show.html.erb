@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row mtop60 mbottom60">
 		<div class="span7">
-			<%= image_tag(@product.photo.url(:large), :class => "thumbnail") %>
+			<%= image_tag(@product.photo.url(:large), :class => "imageZoom", :id => "imageZoom") %>
 		</div>	
 		<div class="span9">
 			<p class="mbottom30">
@@ -26,5 +26,4 @@
 </div>
 <% set_meta_tags :title =>  @product.name,
                  :description => @product.description %>
-
 

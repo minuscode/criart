@@ -6,10 +6,10 @@
 
 /* Active Admin JS */
 /* copied from 'app/assets/javascripts/base.js in active_admin source code */
-$(function(){
-  $(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});
+jQuery(function(){
+  jQuery(".datepicker").datepicker({dateFormat: 'yy-mm-dd'});
 
-  $(".clear_filters_btn").click(function(){
+  jQuery(".clear_filters_btn").click(function(){
     window.location.search = "";
     return false;
   });
