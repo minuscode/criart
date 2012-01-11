@@ -6,6 +6,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require_tree .
 
 jQuery(".close").live("click", function(){jQuery("#notice").fadeOut();})

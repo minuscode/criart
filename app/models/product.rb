@@ -16,7 +16,7 @@ class Product < ActiveRecord::Base
     :styles => {
       :thumb  => "90x90",
       :medium => "210x150",
-      :large => "630x430"
+      :large => "330x230"
     },
     :storage => :s3,
     :bucket => 'criart',

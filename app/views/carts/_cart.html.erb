@@ -1,5 +1,11 @@
-<div class="cart_title">Carrinho</div>
-<table>    
+<table>   
+	<thead>
+	<tr>
+    	<th>Produto</th>
+		<th>Quantidade</th>
+		<th>Preço</th>
+	</tr>
+	</thead> 
     <%= render(cart.line_items) %>
 	<tr class="total_line">
 		<td colspan="2">Total</td>
