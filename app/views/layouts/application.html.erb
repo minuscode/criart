@@ -29,56 +29,53 @@
   </head>
   <body>
 <div>
-    <div class="topbar fix <%="criart" unless request.path != "/"%>">
-      <!--div class="fill"-->
-        <div class="container">
-            <h3>
-                <%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
-          <ul class="nav pills">
-            <% Category.all.each do |category| %>
-                <li><%= link_to category.name , category_path(category), :class => "catmenu" %></li>
-            <% end %>
-          </ul>
-            <div id="user_nav" class="info">
-
-            <%if !@cart.nil? %>
-              <% if user_signed_in? %>
-                <%= current_user.email %>
-                <%= link_to carts_path, :class => "btn cart"  do%>
-                    Carrinho <span id="totalElems">(<%=@cart.total_quantity%>)</span>
-                <% end %>
-                <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
-                <% else %>
-                <%= link_to carts_path, :class => "btn cart" do%>
-                    Carrinho <span id="totalElems">(<%=@cart.total_quantity%>)</span>
-                <% end %>
-                <%= link_to "Entrar", new_user_session_path, :class => "btn" %>
-              <% end %>
-            <%end%>
-            </div>
-        </div>
-          <% if request.path == "/" %>
-            <div class="container">
-                <div class="row mtop20 mbottom40">
-                    <div class="span9">
-                        <div class="media-grid">
-                            <% Product.find(:all, :order => 'updated_at desc', :limit => 8).each do |product|%>
-                                <div style="float:left;"><%= link_to image_tag(product.photo.url(:thumb), :class => "thumbnail"), product_path(product)%></div>
-                            <%end%>
-                        </div>
-                    </div>
-                    <div class="span7 text-centered mtop20">
-                        <h1>Criart Concept</h1>
-                        <h3 class="home">Fazemos Jóias à sua medida!</h3>
-						<%= facebook_like :url => root_url%>
-                    </div>
-                </div>
-            </div>
-        <% end %>
-        </div>
-    <!--/div-->
-
-    <div class="container">
+    <div class="container mainContainer">
+		<div class="span16 session">
+			 <%if !@cart.nil? %>
+	              <% if user_signed_in? %>
+	                <a href="" id="idUser"><%= current_user.email %></a>
+	                <%= link_to "Sair", destroy_user_session_path, :method => :delete %>
+	                <%= link_to carts_path do%>
+	                    Carrinho <span id="totalElems"><%=@cart.total_quantity%></span>
+	                <% end %>
+	                <% else %>
+	                <%= link_to "Entrar", new_user_session_path %>
+	                <%= link_to carts_path do%>
+	                    Carrinho <span id="totalElems"><%=@cart.total_quantity%></span>
+	                <% end %>
+	              <% end %>
+	            <%end%>
+		</div>
+	    <div class="topbar fix <%="criart" unless request.path != "/"%>">
+	      <!--div class="fill"-->
+	        <div class="container">
+	            <h3>
+	                <%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
+	          <ul class="nav pills">
+	            <% Category.all.each do |category| %>
+	                <li><%= link_to category.name , category_path(category), :class => "catmenu" %></li>
+	            <% end %>
+	          </ul>
+	        </div>
+	          <% if request.path == "/" %>
+	            <div class="container">
+	                <div class="row mtop20 mbottom40">
+	                    <div class="span8 first">
+	                        <div class="media-grid">
+	                            <% Product.find(:all, :order => 'updated_at desc', :limit => 8).each do |product|%>
+	                                <div style="float:left;"><%= link_to image_tag(product.photo.url(:thumb), :class => "thumbnail"), product_path(product)%></div>
+	                            <%end%>
+	                        </div>
+	                    </div>
+	                    <div class="span8 text-centered mtop20">
+	                        <h1>Criart Concept</h1>
+	                        <h3 class="home">Fazemos Jóias à sua medida!</h3>
+							<%= facebook_like :url => root_url%>
+	                    </div>
+	                </div>
+	            </div>
+	        <% end %>
+	        </div>
       <% if request.path == "/" %>
         <div class="row mbottom40 mtop20">
                 <div class="span4 text-centered">

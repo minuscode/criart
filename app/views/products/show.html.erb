@@ -1,10 +1,11 @@
 <div id="notice" class="alert-message"><a class="close" href="#">×</a><p><%=notice%><p></div>
 <div class="container">
     <div class="row mtop60 mbottom60">
-		<div class="span7">
+		<div class="span1"></div>
+		<div class="span6">
 			<%= link_to image_tag(@product.photo.url(:large), :title => @product.name), @product.photo.url, :class => "cloud-zoom", :rel => "adjustX: 10, adjustY:-4"%>
 		</div>	
-		<div class="span9">
+		<div class="span8">
 			<p class="mbottom30">
 			  <b><%= @product.name %></b>
 			</p>
@@ -22,6 +23,7 @@
 			<%end%>
 			<%= facebook_like :url => url_for(:only_path => false) %>
 		</div>
+		<div class="span1"></div>
 	</div>
 </div>
 <% set_meta_tags :title =>  @product.name,
