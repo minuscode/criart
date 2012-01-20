@@ -23,9 +23,10 @@ iframe.complete
 	display:block;
 	margin-left: 0px;	
 }
-iframe.complete.count
+iframe.count
 {
 	width:130px;
+	margin-left:5px;
 }
 
 .priceD
