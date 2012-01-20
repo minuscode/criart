@@ -1,29 +1,34 @@
 <div id="notice" class="alert-message"><a class="close" href="#">×</a><p><%=notice%><p></div>
 <div class="container">
-    <div class="row mtop60 mbottom60">
-		<div class="span1"></div>
+    <div class="row mtop60 mbottom30">
+		<div class="span1">&nbsp;</div>
 		<div class="span6">
-			<%= link_to image_tag(@product.photo.url(:large), :title => @product.name), @product.photo.url, :class => "cloud-zoom", :rel => "adjustX: 10, adjustY:-4"%>
+			<div id="cloud-wrap">
+			<%= link_to image_tag(@product.photo.url(:large), :id => "image"), @product.photo.url, :class => "cloud-zoom", :rel => "adjustX: 10, adjustY:-4, zoomWidth:550, zoomHeight:400,tint:'#fff',tintOpacity:0.6 ,lensOpacity:1"%>
+			</div>
+			Propriedades<% @properties.each do |p|%>
+			<span class="label notice"><%= p.name %></span>
+			<%end%>
+			<span id="messageZoom" class="label success">Click para Zoom</span>
 		</div>	
-		<div class="span8">
-			<p class="mbottom30">
-			  <b><%= @product.name %></b>
-			</p>
-			<p class="priceD">
-				<strong>
-			  		<b><%= number_to_currency(@product.price, :unit => "&euro;" )%></b>
-					<%= button_to 'Comprar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
-				</strong>
+		<div class="span9">
+			<p class="mbottom20">
+			  <span id="title"><%= @product.name %></span>
 			</p>
 			<% if !@product.description.blank? %>
-			<p class="mbottom20">
+			<p class="mbottom20 mright60">
 				<b>Descrição</b><br/>
 				<span class="description"><%= @product.description%></span>
 			</p>
 			<%end%>
-			<%= facebook_like :url => url_for(:only_path => false) %>
+				<%= facebook_like :url => url_for(:only_path => false), :class => "complete" %>
+				<%= button_to 'Comprar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
+				<p class="priceD">
+					<strong>
+				  		<%= number_to_currency(@product.price, :unit => "&euro;" )%>
+					</strong>
+				</p>
 		</div>
-		<div class="span1"></div>
 	</div>
 </div>
 <% set_meta_tags :title =>  @product.name,

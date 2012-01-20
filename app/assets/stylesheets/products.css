@@ -15,24 +15,37 @@
 .mbottom60
 {margin-bottom:60px;}
 
-iframe
+.mright60
+{margin-right:60px;}
+iframe.complete
 {
 	height:70px;
+	display:block;
+	margin-left: 0px;	
 }
-iframe.count
+iframe.complete.count
 {
 	width:130px;
 }
 
 .priceD
 {
-	float:left;
-	width:210px;
-	font-size: 2em;
-	color: #57A957;
+	float:right;
+	margin-right:10px;
+	font-size: 1.2em;
+	color: #626262;
+	font-weight: bold;
 }
 
 .description
 {
-	margin: 10px;
+	text-align: justify;
 }
+#title
+{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+form
+{float:right; margin-right:60px;}

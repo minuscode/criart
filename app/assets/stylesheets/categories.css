@@ -77,6 +77,7 @@
 {
 	background-color: whiteSmoke;
 	margin-bottom: 20px;
+	margin-left: 20px;
 	padding: 19px;
 	min-height: 20px;
 	border: 1px solid #EEE;
@@ -116,16 +117,10 @@ a.removeFilter
 .pagination ul a
 {
 	margin: 0px;	
+	font-weight:bold;
 }
-
-.pagination ul
-{
-	margin: 10px 0px 0px 20px;	
-	float:right;
-}
-
-.pagination ul.last
-{
-	margin: 10px 0px 0px 20px;	
-	float:left;
+.pagination a:hover, .pagination .active a {
+	background-color:#BED9E5;
+	color:white;
+	font-weight:bold;
 }

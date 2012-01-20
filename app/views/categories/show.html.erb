@@ -14,7 +14,8 @@
 		<%= render "products" %>
 	</div>
 	<div class="row">
-		<%= paginate @products%>
+		<span class="span3">&nbsp;</span>
+		<span class="span9"><%= paginate @products, :outer_window => 1%></span>
 	</div>
 </div>
 </div>

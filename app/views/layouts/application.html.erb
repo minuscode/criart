@@ -60,9 +60,9 @@
 	          <% if request.path == "/" %>
 	            <div class="container">
 	                <div class="row mtop20 mbottom40">
-	                    <div class="span8 first">
+	                    <div class="span6 first">
 	                        <div class="media-grid">
-	                            <% Product.find(:all, :order => 'updated_at desc', :limit => 8).each do |product|%>
+	                            <% Product.find(:all, :order => 'updated_at desc', :limit => 6).each do |product|%>
 	                                <div style="float:left;"><%= link_to image_tag(product.photo.url(:thumb), :class => "thumbnail"), product_path(product)%></div>
 	                            <%end%>
 	                        </div>

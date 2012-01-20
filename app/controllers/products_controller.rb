@@ -23,7 +23,8 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @cart = current_cart
-
+    @properties = @product.properties
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @product }

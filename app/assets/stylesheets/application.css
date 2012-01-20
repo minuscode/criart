@@ -153,13 +153,13 @@ body{
 
 .main h1
 {
-	margin: 18px;
+	margin:10px 30px 10px
 }
-
 
 footer
 {
 	text-align: center;
+	padding-bottom: 17px;
 }
 
 .session
@@ -191,10 +191,11 @@ footer
 .main
 {
 	background-color: white;
+	min-height: 480px;
 }
 
 .mainContainer
-{margin-top:1px;
+{   margin-top:1px;
 	background: white;
 	-webkit-box-shadow: 0 0 4px rgba(0,0,0,.7);
 	box-shadow: 0 0 4px rgba(0,0,0,.7);}
@@ -202,14 +203,22 @@ footer
 .topbar .container h3
 {margin-left: 20px; margin-top:10px;}
 
-.topbar .container div.span8
-{margin-left:0px;}
-
-.topbar .container div.span8.first
-{margin-left:40px;}
+.topbar .container div.first
+{margin-left:90px;}
 
 .social
 {
 	float: right;
 	margin:20px;
+}
+
+.first .media-grid a
+{padding:0px;}
+
+.first .media-grid a:hover {
+  border-color: #BED9E5;
+}
+iframe
+{
+	margin-left: 120px;	
 }
