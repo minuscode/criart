@@ -38,6 +38,7 @@ gem 'annotate'
 
 # Cloud Storage for files
 gem 'aws-s3'
+gem 'aws-sdk'
 
 # File Handling
 gem 'paperclip'
