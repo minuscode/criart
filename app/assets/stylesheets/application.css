@@ -222,3 +222,12 @@ iframe.begin
 {
 	margin-left: 120px;	
 }
+
+.main.initial
+{min-height: 0px;}
+
+.media-grid div
+{
+	width: 112px;
+	height:110px;
+}

@@ -104,7 +104,7 @@
                 </div>
             </div>
         <% end %>
-    <div class="main">
+    <div class="main <%= "initial" unless request.path != "/" %>">
 		<%if notice%>
 			<div id="notice" class="alert-message"><p><%=notice%><p></div>
 		<%end%>
