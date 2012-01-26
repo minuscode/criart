@@ -52,7 +52,7 @@
 	            <h3>
 	                <%= link_to image_tag("/assets/logo.png"), root_path, :width => "179px", :height => "40px", :alt => "Criart Concept", :class => "logo"%></h3>
 	          <ul class="nav pills">
-	            <% Category.all.each do |category| %>
+	            <% Category.find(:all, :order => 'name', :limit => 9).each do |category| %>
 	                <li><%= link_to category.name , category_path(category), :class => "catmenu" %></li>
 	            <% end %>
 	          </ul>
