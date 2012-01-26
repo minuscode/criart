@@ -2,14 +2,14 @@ class Product < ActiveRecord::Base
   scope :bycategory, lambda { |categories| {:include => :properties, :conditions => {:properties => {:id => categories.dup.split(",")}}}}
   
   validates :name,:price, :presence => true
-  has_many :line_items
+  has_many :line_items, :dependent => :destroy
   belongs_to :category
   has_and_belongs_to_many :properties
   
   has_many :product_catalogs
   has_many :catalogs, :through => :product_catalogs
 
-  before_destroy :ensure_not_referenced_by_any_line_item
+  #before_destroy :ensure_not_referenced_by_any_line_item
 
 ##330x230
   has_attached_file :photo,

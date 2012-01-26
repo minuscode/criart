@@ -25,7 +25,7 @@
 				<%= button_to 'Comprar', line_items_path(:product_id => @product), :class => "btn success", :remote => true %>
 				<p class="priceD">
 					<strong>
-				  		<%= number_to_currency(@product.price, :unit => "&euro;" )%>
+				  		<%= number_to_currency(@product.price)%>
 					</strong>
 				</p>
 		</div>

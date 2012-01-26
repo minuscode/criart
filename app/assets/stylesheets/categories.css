@@ -50,8 +50,9 @@
 .box .price
 {
 	float:left;
-	margin:10px;
+	margin: 4px 10px 5px 10px;
 	width: 115px;
+	text-align:center;
 }
 .box .photo
 {
@@ -61,6 +62,7 @@
 {
 	margin: 10px 0px 0px 10px;
 	font-size: 12px;
+	text-align: center;
 }
 .box p a
 {	
@@ -69,8 +71,11 @@
 }
 .box .abuttons
 {
-	float:left;
 	margin-top: 10px;
+}
+
+.box .abuttons .btn.small {
+	padding: 4px 9px 4px;
 }
 
 .filters

@@ -1,4 +1,7 @@
-<table>   
+<div class="row">
+<div class="span2">&nbsp;</div>
+<div class="span12">
+<table id="cart">   
 	<thead>
 	<tr>
     	<th>Produto</th>
@@ -8,11 +11,14 @@
 	</thead> 
     <%= render(cart.line_items) %>
 	<tr class="total_line">
-		<td colspan="2">Total</td>
+		<td class="total" colspan="2">Total</td>
 		<td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
 	</tr>
 </table>
-
-<%= link_to 'Finalizar Compra', new_order_path, :method => :get %>
-<%= link_to 'Limpar Carrinho', cart, :method => :delete, :confirm => 'Tem a certeza?'%>
-
+<div class="pull-right">
+	<%= link_to 'Limpar', cart, :method => :delete, :confirm => 'Tem a certeza que quer remover todo o carrinho?', :class => "btn danger"%>
+	<%= link_to 'Finalizar Compra', new_order_path, :method => :get, :class => "btn success" %>
+</div>
+</div>
+<div class="span2">&nbsp;</div>
+</div>

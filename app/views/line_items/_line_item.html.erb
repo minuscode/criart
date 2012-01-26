@@ -1,5 +1,8 @@
 <tr>
-    <td><%= line_item.product.name %></td>
-	<td><%= line_item.quantity %><%= button_to '',  line_item, :method => :delete, :confirm => 'Tem a certeza?'%></td>
+    <td class="productDetail">
+<%= link_to image_tag(line_item.product.photo.url(:thumb), :class => "thumbnail"), product_path(line_item.product)%>
+<div><%= line_item.product.name %></div>
+</td>
+	<td><div><%= line_item.quantity %></div><div><%= link_to 'x',  line_item, :method => :delete, :confirm => 'Tem a certeza que quer remover uma unidade?', :class => "close"%></div></td>
 	<td class="item_price"><%= number_to_currency(line_item.product.price) %></td>
 </tr>

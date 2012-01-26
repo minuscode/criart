@@ -2,3 +2,53 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+#cart
+{
+	margin: 20px 10px 5px 10px;
+}
+
+#cart th
+{
+	background-color: #7D7D7D;
+	color: white;
+	border-top: 2px solid rgba(0, 0, 0, 0.1);
+	border-right: 1px solid white;
+	text-align:center;
+}
+
+#cart .total_line
+{
+	border-top: 2px solid #DDD;
+	border-bottom: 2px solid #DDD;
+}
+
+#cart .total_line td.total{
+	text-align: right;
+}
+
+#cart .total_line td.total_cell{
+	font-size: 18px;
+	font-weight:bold;
+}
+#cart td
+{
+	text-align:center;
+	vertical-align:middle;
+}
+#cart .productDetail{
+	text-align:left;
+	vertical-align:top;
+}
+
+#cart .productDetail img{
+	float:left;
+	margin-right:15px;
+}
+#cart .productDetail div{
+	padding-top:25px;
+}
+#cart .close
+{
+	float:none;
+	color:red;
+}
