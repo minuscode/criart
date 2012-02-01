@@ -74,8 +74,9 @@
 	margin-top: 10px;
 }
 
-.box .abuttons .btn.small {
+input.btn.small.fix {
 	padding: 4px 9px 4px;
+	width: auto;
 }
 
 .filters

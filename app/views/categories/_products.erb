@@ -11,7 +11,7 @@
 			<strong>Preço: <%= number_to_currency(@products[i].price)%></strong>
 		</div>
 		<div class="abuttons">
-			<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small", :remote => true %>
+			<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small fix", :remote => true %>
 			<%= facebook_like :url => root_url+"products/"+@products[i].id.to_s, :count => "count", :class => "count" %>
 		</div>
 	</div>
@@ -32,7 +32,7 @@
 				<strong>Preço: <%= number_to_currency(@products[i].price)%></strong>
 			</div>
 			<div class="abuttons">
-				<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small", :remote => true %>
+				<%= button_to 'Comprar', line_items_path(:product_id => @products[i]), :class => "btn success small fix", :remote => true %>
 				<%= facebook_like :url => root_url+"products/"+@products[i].id.to_s, :count => "count", :class => "count" %>
 			</div>
 		</div>

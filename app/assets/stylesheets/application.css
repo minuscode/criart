@@ -128,6 +128,9 @@ color: gray;
 .mbottom20{margin-bottom:20px;}
 .mbottom10{margin-bottom:10px;}
 .text-centered {text-align:center;}
+.fleft{ float: left;}
+.fright{ float: right;}
+.rborder { border-right: 1px solid #eee;}
 
 body{
 	padding-top:0px!important;
@@ -231,3 +234,31 @@ iframe.begin
 	width: 112px;
 	height:110px;
 }
+.user_new
+{width: 400px;}
+
+.user_new input[type="checkbox"]
+{float:left; margin: 18px 10px 0px;}
+
+.user_new input, .user_new label
+{margin: 10px;}
+
+.user_new .btn
+{float:right;}
+
+.user_new .passwordF
+{ margin-top: 10px;}
+
+.newAccount
+{text-align: right;
+width: 200px;
+padding: 50px;}
+
+.social
+{
+	height: 230px;	
+	background: transparent url("/assets/tit_facebook.png") no-repeat top left;
+}
+
+.social .auth_button
+{margin-top: 110px;}
