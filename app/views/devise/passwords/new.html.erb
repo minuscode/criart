@@ -1,12 +1,19 @@
-<h2>Forgot your password?</h2>
-
+<h1>Esqueceu a sua password?</h1>
+<div class="row mtop40">
+<div class="span16">
 <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div class='askpass'><%= f.label :email %>
+  		<%= f.email_field :email %>
+	 <%= f.submit "Pedir Password", :class => "btn small fix" %>
+	</div>
 
-  <div><%= f.submit "Send me reset password instructions" %></div>
 <% end %>
 
-<%= render :partial => "devise/shared/links" %>
+<%- if controller_name != 'sessions' %>
+  <span style="float:right; margin-right:60px;">Já com com conta criada? <%= link_to "Entre!", new_session_path(resource_name) %></span>
+<% end -%>
+
+</div>
+</div>

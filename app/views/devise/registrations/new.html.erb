@@ -1,22 +1,29 @@
-<h2>Sign up</h2>
-
+<h1>Criar Conta</h1>
+<div class="row mtop60">
+<div class="span8 rborder">
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
 
-  <div><%= f.label :username %><br />
+  <div><%= f.label "Nome Utilizador" %>
   <%= f.text_field :username %></div>
 
-  <div><%= f.label :email %><br />
+  <div><%= f.label :email %>
   <%= f.email_field :email %></div>
 
-  <div><%= f.label :password %><br />
+  <div><%= f.label :password %>
   <%= f.password_field :password %></div>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+  <div><%= f.label "Confirmar Password" %>
+  <%= f.password_field  :password_confirmation%></div>
 
-  <div><%= f.submit "Sign up" %></div>
+  <div><%= f.submit "Criar Conta" , :class => "btn small fix fleft"%></div>
 <% end %>
-
+</div>
+<div class="span7 social">
 <%= render :partial => "devise/shared/links" %>
+</div>
+<%- if controller_name != 'sessions' %>
+  <span style="float:right; margin-right:60px;">Já com com conta criada? <%= link_to "Entre!", new_session_path(resource_name) %></span><br />
+<% end -%>
+</div>
