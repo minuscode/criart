@@ -19,7 +19,7 @@
 #cart .total_line
 {
 	border-top: 2px solid #DDD;
-	border-bottom: 2px solid #DDD;
+	/*border-bottom: 2px solid #DDD;*/
 }
 
 #cart .total_line td.total{
