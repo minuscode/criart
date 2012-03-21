@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   scope :bycategory, lambda { |categories| {:include => :properties, :conditions => {:properties => {:id => categories.dup.split(",")}}}}
+  
   scope :featured, lambda {where(:feature => true)}
   
   validates :name,:price, :presence => true
