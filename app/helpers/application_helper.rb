@@ -46,11 +46,15 @@ def filterProdsCat(params)
 end
 
 def filterProds(params)
+  if(!@feature || @feature.nil?)
   #@category = Category.find(params[:id])
   @products_all = Product.find(:all, :order => "updated_at")
-  
+  else
+  @products_all = Product.find(:all, :conditions => {:feature => true}, :order => "updated_at")
+  end
+    
   #@products_all = @category.products.order("name")
-  
+
   if(params[:property_id].nil?)
     @p =  Product
   else
@@ -59,6 +63,11 @@ def filterProds(params)
     @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
   end
   
+  
+  if(@feature)
+    @p = @p.featured
+  end
+
   range = params[:range_id]
   
   if(!range.blank?)

@@ -9,7 +9,6 @@ class ProductsController < ApplicationController
    # else
   #    @products = Product.where(:category_id => params[:category_id])
    # end
-   
     filterProds(params)
 
     respond_to do |format|
@@ -17,7 +16,16 @@ class ProductsController < ApplicationController
       format.json { render json: @products }
     end
   end
-
+  
+  # GET /products
+  # GET /products.json
+  def popular 
+    @feature = true
+    filterProds(params)
+    render  'products/index' 
+  end
+  
+  
   # GET /products/1
   # GET /products/1.json
   def show

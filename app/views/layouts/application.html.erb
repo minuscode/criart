@@ -95,7 +95,10 @@
                 </div>
                 <div class="span4 text-centered">
                     <!--<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/devscore.png" title="DevScore" alt="DevScore" width="154px" height="90px"></div>-->
-                    <div><img src="/assets/icon-popular.png" title="Populares" alt="Populares"></div>
+                    <div><%= link_to "products/popular" do%>
+							<img src="/assets/icon-popular.png" title="Populares" alt="Populares">
+						<% end %>
+					</div>
                     <h2>Populares</h2>
                     <h4 class="home">O que os nossos clientes mais gostam.</h4>
                 </div>

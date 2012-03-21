@@ -1,27 +1,31 @@
 Criart::Application.routes.draw do
-  resources :catalogs
+  resources :catalogs, :only => [:index, :show]
 
-  resources :range_filters
+  resources :range_filters, :only => [:index, :show]
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :orders
+  resources :orders, :only => [:index, :show]
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
-  resources :line_items
+  resources :line_items, :only => [:index, :show]
 
-  resources :carts
+  resources :carts, :only => [:index, :show]
 
   get "store/index"
 
-  resources :properties
-  resources :categories
-  resources :products
+  resources :properties, :only => [:index, :show]
+  resources :categories, :only => [:index, :show]
+  
+  match '/products/popular', :controller => 'products', :action => 'popular'
+  
+  resources :products, :only => [:index, :show, :popular]
 
   root :to => "home#index", :as => 'root'
+  
 
   #match "carts" => :as => "cart"
 

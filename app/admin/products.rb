@@ -27,6 +27,7 @@ ActiveAdmin.register Product do
           f.input :category, :label => "Categoria"
           f.input :price, :label => "Preco"
           f.input :photo, :as => :file, :label => "Foto", :hint => f.template.image_tag(f.object.photo.url(:thumb))
+          f.input :feature, :as => :boolean, :label => "Popular"
         end
         f.inputs "Content" do
           f.input :reference, :label => "Referencia"
@@ -39,8 +40,8 @@ ActiveAdmin.register Product do
   # Show
   show :title => :name do
     panel "Caracteristicas" do
-       attributes_table_for product, :name, :category, :price, :reference, :description
-      image_tag(product.photo.url(:medium))
+       attributes_table_for product, :name, :category, :price, :reference, :description, :feature
+       image_tag(product.photo.url(:medium))
     end
     active_admin_comments
   end

@@ -1,9 +1,13 @@
 module ProductsHelper
 def byProp(products, category)
+  if @feature
+    products = products.featured
+  end
+  
   if category.blank?
     products
   else
-    return products.where(:category_id => category.id)
-  end
+    products.where(:category_id => category.id)
+  end  
 end
 end
