@@ -15,3 +15,66 @@ def number_to_currency(number, options = {})
   options[:locale] ||= I18n.locale
   super(number, options)
 end
+def filterProdsCat(params)
+  @category = Category.find(params[:id])
+  @products_all = @category.products.order("updated_at")
+  
+  if(params[:property_id].nil?)
+    @p = @category.products.scoped
+  else
+    @p = @category.products.scoped.bycategory(params[:property_id])
+    @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
+  end
+  
+  range = params[:range_id]
+  
+  if(!range.blank?)
+      @curr_range = RangeFilter.find(range)
+      if !@curr_range.valueMax.nil?
+        @products ||= @p.where(:price => @curr_range.valueMin...@curr_range.valueMax)
+      else
+        @products ||= @p.where("price >= "+ @curr_range.valueMin)
+      end
+  else
+    @products ||= @p
+  end
+  
+  @products = @products.page(params[:page]).per(6)
+  @cart = current_cart
+  @properties ||= Property.all
+  @ranges ||= RangeFilter.all
+end
+
+def filterProds(params)
+  #@category = Category.find(params[:id])
+  @products_all = Product.find(:all, :order => "updated_at")
+  
+  #@products_all = @category.products.order("name")
+  
+  if(params[:property_id].nil?)
+    @p =  Product
+  else
+    @p =  Product.bycategory(params[:property_id])
+    
+    @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
+  end
+  
+  range = params[:range_id]
+  
+  if(!range.blank?)
+      @curr_range = RangeFilter.find(range)
+      if !@curr_range.valueMax.nil?
+        @products ||= @p.where(:price => @curr_range.valueMin...@curr_range.valueMax)
+      else
+        @products ||= @p.where("price >= "+ @curr_range.valueMin)
+      end
+  else
+    @products ||= @p
+  end
+  
+  @products = @products.page(params[:page]).per(6)
+  @cart = current_cart
+  @properties ||= Property.all
+  
+  @ranges ||= RangeFilter.all
+end

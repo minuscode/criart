@@ -4,13 +4,13 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    if params[:category_id].nil?
-      @products = Product.all
-    else
-      @products = Product.where(:category_id => params[:category_id])
-    end
-    
-    @cart = current_cart
+  #  if params[:category_id].nil?
+   #  @products = Product.all
+   # else
+  #    @products = Product.where(:category_id => params[:category_id])
+   # end
+   
+    filterProds(params)
 
     respond_to do |format|
       format.html # index.html.erb

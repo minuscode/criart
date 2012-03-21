@@ -1,36 +1,21 @@
+<% session[:back] = request.fullpath %>
+<div id="notice" class="alert-message"><a class="close" href="#">×</a><p><%=notice%><p></div>
+<h1>Jóias</h1>
+<div class="row">
+<div class="span4">
+	<div class="filters">
+		<h3>Filtros</h3>
+		<%= render :partial => "shared/filters" %>
+	</div>
+</div>
 
-<h1>Listing products</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Reference</th>
-    <th>Description</th>
-    <th>Price</th>
-    <th>Image url</th>
-    <th>Thumb url</th>
-    <th>Visits</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @products.each do |product| %>
-  <tr>
-    <td><%= product.name %></td>
-    <td><%= product.reference %></td>
-    <td><%= product.description %></td>
-    <td><%= product.price %></td>
-    <td><%= product.image_url %></td>
-    <td><%= product.thumb_url %></td>
-    <td><%= product.visits %></td>
-    <td><%= link_to 'Show', product %></td>
-    <td><%= link_to 'Edit', edit_product_path(product) %></td>
-    <td><%= link_to 'Destroy', product, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Product', new_product_path %>
+<div class="span12">
+	<div class="row">
+		<%= render :partial => "shared/products" %>
+	</div>
+	<div class="row">
+		<span class="span3">&nbsp;</span>
+		<span class="span9"><%= paginate @products, :outer_window => 1%></span>
+	</div>
+</div>
+</div>

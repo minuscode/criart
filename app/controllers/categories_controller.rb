@@ -15,34 +15,7 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
-    @category = Category.find(params[:id])
-    @products_all = @category.products.order("name")
-    
-    if(params[:property_id].nil?)
-      @p = @category.products.scoped
-    else
-      @p = @category.products.scoped.bycategory(params[:property_id])
-      @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
-    end
-    
-    range = params[:range_id]
-    
-    if(!range.blank?)
-        @curr_range = RangeFilter.find(range)
-        if !@curr_range.valueMax.nil?
-          @products ||= @p.where(:price => @curr_range.valueMin...@curr_range.valueMax)
-        else
-          @products ||= @p.where("price >= "+ @curr_range.valueMin)
-        end
-    else
-      @products ||= @p
-    end
-    
-    
-    @products = @products.page(params[:page]).per(6)
-    @cart = current_cart
-    @properties ||= Property.all
-    @ranges ||= RangeFilter.all
+    filterProdsCat(params)
     
     respond_to do |format|
       format.html # show.html.erb
@@ -66,7 +39,6 @@ class CategoriesController < ApplicationController
   def edit
     @category = Category.find(params[:id])
     @cart = current_cart
-    
   end
 
   # POST /categories
@@ -75,7 +47,6 @@ class CategoriesController < ApplicationController
     @category = Category.new(params[:category])
     @cart = current_cart
     
-
     respond_to do |format|
       if @category.save
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
