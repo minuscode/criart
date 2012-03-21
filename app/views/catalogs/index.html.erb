@@ -1,4 +1,4 @@
-<h1>Listing catalogs</h1>
+<h1>Coleções</h1>
 
 <table>
   <tr>
@@ -12,12 +12,8 @@
   <tr>
     <td><%= catalog.name %></td>
     <td><%= link_to 'Show', catalog %></td>
-    <td><%= link_to 'Edit', edit_catalog_path(catalog) %></td>
-    <td><%= link_to 'Destroy', catalog, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Catalog', new_catalog_path %>

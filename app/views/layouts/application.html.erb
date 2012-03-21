@@ -89,9 +89,12 @@
                 </div>
                 <div class="span4 text-centered">
                     <!--<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/skills.png" title="Skills" alt="Skills" width="154px" height="90px"></div>-->
-                    <div><img src="/assets/icon-collection.png" title="Colecções" alt="Colecções"></div>
-                    <h2>Colecções</h2>
-                    <h4 class="home">Várias colecções para ver</h4>
+                    <div><%= link_to catalogs_path do%>
+							<img src="/assets/icon-collection.png" title="Colecções" alt="Colecções">
+						 <% end %>
+					</div>
+                    <h2>Coleções</h2>
+                    <h4 class="home">Várias coleções para ver</h4>
                 </div>
                 <div class="span4 text-centered">
                     <!--<div><img src="https://d1uycljvtt30eq.cloudfront.net/20111114-1/images/home/devscore.png" title="DevScore" alt="DevScore" width="154px" height="90px"></div>-->
