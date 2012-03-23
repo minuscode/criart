@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
    # else
   #    @products = Product.where(:category_id => params[:category_id])
    # end
-    filterProds(params)
+    filterProds(params,nil)
 
     respond_to do |format|
       format.html # index.html.erb

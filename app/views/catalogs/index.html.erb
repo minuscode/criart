@@ -1,19 +1,47 @@
 <h1>Coleções</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @catalogs.each do |catalog| %>
-  <tr>
-    <td><%= catalog.name %></td>
-    <td><%= link_to 'Show', catalog %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<div class="container">
+	<div class="row">
+		<div class="span16">
+		<div class="row">
+			<div class="span2">&nbsp;</div>
+			<div class="span12">
+				<div class="row">
+				<% j = 0 #ganda banana mas é para ter a possiblidade de saber em qual index se vai... %>
+				
+				<% @catalogs.each do |catalog| %>
+					<%if j == 3%>
+					</div>
+					<div class="row">
+					<%end%>
+					<%j = j+1%>
+					
+					<%= link_to catalog do%>
+					<div class="span4 catalog">
+						<h4><%= catalog.name%></h2>
+						<ul class="cProducts">
+							<%
+								products = catalog.products
+								if products.length >= 5
+									size = 5
+								else
+									size = products.length 
+								end
+								%>
+								<% for i in 0...size do%>
+									<li class="p<%=(i+1).to_s%>"><%= link_to image_tag(products[i].photo.url(:thumb), :class => "thumbnail")%></li>
+								<%end%>
+						</ul>
+					</div>
+					<% end %>
+				<% end %>	
+				</div>
+			</div>
+			<div class="span2">&nbsp;</div>
+		</div>
+  		</div>
+	</div>
+	<div class="row">
+		<span class="span3">&nbsp;</span>
+		<span class="span9"><%= paginate @catalogs, :outer_window => 1%></span>
+	</div>
+</div>

@@ -45,22 +45,30 @@ def filterProdsCat(params)
   @ranges ||= RangeFilter.all
 end
 
-def filterProds(params)
-  if(!@feature || @feature.nil?)
+def filterProds(params, c)
+  if(!@feature || @feature.nil?) && c.blank?
   #@category = Category.find(params[:id])
   @products_all = Product.find(:all, :order => "updated_at")
+  elsif !c.blank?
+  @products_all = Catalog.find(c).products
   else
   @products_all = Product.find(:all, :conditions => {:feature => true}, :order => "updated_at")
   end
     
   #@products_all = @category.products.order("name")
 
-  if(params[:property_id].nil?)
+  if(params[:property_id].nil? && c.blank?)
     @p =  Product
-  else
-    @p =  Product.bycategory(params[:property_id])
-    
+  elsif !c.blank? 
+    if params[:property_id].nil? 
+      @p = Catalog.find(c).products.scoped
+    else
+      @p = Catalog.find(c).products.bycategory(params[:property_id])
+      @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
+    end
+  else  
     @properties_chosen = Property.find(:all, :conditions => {:id => params[:property_id].dup.split(",")})
+    @p =  Product.bycategory(params[:property_id])
   end
   
   
