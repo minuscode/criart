@@ -26,6 +26,8 @@ Criart::Application.routes.draw do
 
   root :to => "home#index", :as => 'root'
   
+  match '/atelier', :controller => 'application', :action => 'atelier'
+  
 
   #match "carts" => :as => "cart"
 

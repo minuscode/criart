@@ -1,6 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   @categories = Category.all
+  
+  def atelier
+    render("layouts/about")
+  end
+  
   private
   
   def current_cart
